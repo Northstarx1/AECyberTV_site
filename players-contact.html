@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AECyberTV — Players & Contact</title>
+  <meta name="description" content="AECyberTV — official players and contact links."/>
+  <style>
+    :root{
+      --primary:#B2248E; /* purple */
+      --accent:#FE8927;  /* orange */
+      --bg:#0f1115;
+      --card:#171a21;
+      --cardHover:#1d2129;
+      --border:rgba(255,255,255,.12);
+      --borderHover:rgba(255,255,255,.22);
+      --text:#f6f7f9;
+      --muted:rgba(255,255,255,.78);
+      --tabsH:44px;
+      --brandH:56px;
+      --headerH:calc(var(--tabsH) + var(--brandH));
+      --glow: 0 0 12px rgba(254,137,39,.35), 0 0 22px rgba(178,36,142,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{margin:0;padding-top:var(--headerH);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,92vw);margin:0 auto;padding:24px}
+    /* Fixed headers */
+    .top-tabs{position:fixed;top:0;left:0;right:0;z-index:1002;background:rgba(10,11,14,0.72);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .tabs-inner{max-width:1100px;margin:0 auto;padding:8px 12px;display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap}
+    .tab{color:#fff;padding:8px 14px;border-radius:12px;border:1px solid transparent;transition:background .2s,border-color .2s,box-shadow .2s}
+    .tab:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);box-shadow:var(--glow)}
+    .tab.active{background:rgba(255,255,255,.06);border-color:var(--border)}
+    .nav{position:fixed;top:var(--tabsH);left:0;right:0;z-index:1001;border-bottom:1px solid rgba(255,255,255,.10);background:rgba(12,13,15,.7);backdrop-filter:blur(10px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand-badge{background:linear-gradient(90deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900;letter-spacing:.3px;font-size:1.4rem;white-space:nowrap}
+    .lang-switch{display:flex;gap:8px}
+    .lang-switch button{background:#16171a;border:1px solid rgba(255,255,255,.12);color:#EDEEF0;padding:8px 12px;border-radius:10px;cursor:pointer}
+    .lang-switch button.active{background:var(--primary);color:#0b0b0c;border-color:var(--primary)}
+    /* Sections */
+    .section{padding:26px 0; scroll-margin-top: var(--headerH)}
+    #intro{scroll-margin-top: var(--headerH);}
+    .section h2{margin:0 0 14px;font-size:clamp(22px,3vw,30px)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform .18s, background-color .18s, border-color .18s, box-shadow .18s}
+    .card.hoverable:hover{background:var(--cardHover);border-color:var(--borderHover);transform:translateY(-3px) scale(1.01);box-shadow:var(--glow)}
+    .stack{display:flex;flex-direction:column;gap:8px}
+    .note{color:var(--muted);font-size:14px}
+    .kbd{background:#1b1d22;border:1px solid rgba(255,255,255,.12);padding:2px 6px;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    [dir="rtl"] .tabs-inner{flex-direction:row-reverse}
+    [dir="rtl"] .grid{direction:rtl}
+    .badge{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--primary));padding:6px 10px;border-radius:999px;font-size:12px;color:#0b0b0c;font-weight:800}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.10);background:#121316;color:#EDEEF0;transition:box-shadow .2s, transform .12s}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--primary));color:#0b0b0c;border-color:transparent;font-weight:800;box-shadow:var(--glow)}
+    .btn.primary:hover{transform:translateY(-1px)}
+  </style>
+</head>
+<body>
+
+<!-- Top tabs: Players + Contact only -->
+<nav id="top-tabs" class="top-tabs" role="navigation" aria-label="Primary">
+  <div class="tabs-inner">
+    <a href="#intro" class="tab" data-en="Home" data-ar="الرئيسية">🏠 Home</a>
+    <a href="#players" class="tab active" data-en="Players" data-ar="التطبيقات">🎬 Players</a>
+    <a href="#contact" class="tab" data-en="Contact" data-ar="تواصل">📞 Contact</a>
+  </div>
+</nav>
+
+<!-- Brand + language -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand-badge" href="#intro">AECyberTV</a>
+    <div class="lang-switch">
+      <button id="lang_en" class="active" type="button">EN</button>
+      <button id="lang_ar" type="button">العربية</button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <!-- Optional slim intro matching the requirement (no separate Home/Packages) -->
+  <section class="section" id="intro">
+    <div class="grid">
+      <div class="card hoverable">
+        <span class="badge" data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</span>
+        <h2 data-en="Official Players & Downloads" data-ar="التطبيقات الرسمية وروابط التحميل">Official Players & Downloads</h2>
+        <p class="note" data-en="All apps use Server Number 7765. 🔢" data-ar="جميع التطبيقات تستخدم رقم الخادم 7765. 🔢">All apps use Server Number 7765. 🔢</p>
+        <div class="stack"><a class="btn primary" href="#players" data-en="Open Players" data-ar="فتح التطبيقات">🎮 Open Players</a></div>
+      </div>
+      <div class="card hoverable">
+        <span class="badge" data-en="📞 Contact" data-ar="📞 التواصل">📞 Contact</span>
+        <h2 data-en="Help, Renewals & Sales" data-ar="المساعدة والتجديد والاشتراكات">Help, Renewals & Sales</h2>
+        <p class="note" data-en="Talk to us on WhatsApp or Telegram." data-ar="تواصل معنا عبر واتساب أو تيليجرام.">Talk to us on WhatsApp or Telegram.</p>
+        <div class="stack"><a class="btn primary" href="#contact" data-en="Open Contact" data-ar="فتح صفحة التواصل">💬 Open Contact</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Players -->
+  <section id="players" class="section">
+    <h2 data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</h2>
+    <div class="grid">
+      <div class="card hoverable">
+        <h3>🍏 iPlay</h3>
+        <div class="stack">
+          <div>🍎 <a href="https://apps.apple.com/us/app/iplay-hub/id6751518936" target="_blank" rel="noopener">App Store (iPhone / iPad / Mac)</a></div>
+          <div class="note" data-en="Use your same login and Server Number 7765." data-ar="استخدم نفس بيانات الدخول ورقم الخادم 7765.">Use your same login and Server Number 7765.</div>
+        </div>
+      </div>
+
+      <div class="card hoverable">
+        <h3>🤖 S Player</h3>
+        <div class="stack">
+          <div>📱 <a href="https://play.google.com/store/apps/details?id=com.splayer.iptv" target="_blank" rel="noopener">Google Play</a></div>
+          <div>💻 <a href="http://aftv.news/5653918" target="_blank" rel="noopener">Downloader (Firestick / Android TV)</a></div>
+          <div class="note" data-en="After install, tap the AECyberTV logo in the app. Server 7765." data-ar="بعد التثبيت اضغط على شعار AECyberTV داخل التطبيق. الخادم 7765.">After install, tap the AECyberTV logo in the app. Server 7765.</div>
+        </div>
+      </div>
+
+      <div class="card hoverable">
+        <h3>💠 000 Player</h3>
+        <div class="stack">
+          <div>🍎 <a href="https://apps.apple.com/us/app/000-player/id1665441224" target="_blank" rel="noopener">iOS</a></div>
+          <div>🤖 <a href="https://play.google.com/store/apps/details?id=com.player.iptv" target="_blank" rel="noopener">Android / Android TV</a></div>
+          <div>🔥 <a href="http://aftv.news/6913771" target="_blank" rel="noopener">Downloader (Firestick / Android TV)</a></div>
+          <div>💻 <a href="https://my.splayer.in" target="_blank" rel="noopener">Web Player</a></div>
+          <div class="note" data-en="Use Server Number 7765." data-ar="استخدم رقم الخادم 7765.">Use Server Number 7765.</div>
+        </div>
+      </div>
+
+      <div class="card hoverable">
+        <h3>🧩 IBO Player — Official</h3>
+        <div class="stack">
+          <div>Android (Standard): <span class="kbd">Downloader 1171959</span> • <a href="https://ibodesk.com/iboupdate.apk" target="_blank" rel="noopener">APK</a></div>
+          <div>Android (Pro): <span class="kbd">Downloader 923441</span> • <a href="https://ibodesk.com/iboplayerpro.apk" target="_blank" rel="noopener">APK</a></div>
+          <div>iOS: <a href="https://apps.apple.com/ae/app/ibo-player/id1547652240" target="_blank" rel="noopener">IBO Player</a> • <a href="https://apps.apple.com/us/app/ibo-player-pro/id1669696096" target="_blank" rel="noopener">IBO Player Pro</a></div>
+          <div class="note" data-en="Activation shows MAC & Device Key on-screen, then visit iboplayer.com" data-ar="تظهر بيانات MAC ومفتاح الجهاز على الشاشة ثم زر iboplayer.com للتفعيل.">Activation shows MAC & Device Key on-screen, then visit iboplayer.com</div>
+        </div>
+      </div>
+
+      <div class="card hoverable">
+        <h3>📺 Smarters Pro — Official</h3>
+        <div class="stack">
+          <div><a href="https://play.google.com/store/apps/details?id=com.smarterspro.smartersprotv" target="_blank" rel="noopener">Android TV</a></div>
+          <div><a href="https://play.google.com/store/apps/details?id=com.smarters.smarterspro" target="_blank" rel="noopener">Android Phone</a></div>
+          <div><a href="https://apps.apple.com/app/smarters-pro/id6450746159" target="_blank" rel="noopener">iOS (iPhone / iPad / Apple TV)</a></div>
+          <div><a href="http://webtv-new.iptvsmarters.com" target="_blank" rel="noopener">Web TV</a></div>
+          <div class="note">Official site: <a href="https://smarterspro.com/" target="_blank" rel="noopener">smarterspro.com</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2 data-en="💬 Contact" data-ar="💬 التواصل">💬 Contact</h2>
+    <div class="grid">
+      <a class="card hoverable" href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener" style="display:block">
+        <h3 data-en="💚 WhatsApp" data-ar="💚 واتساب">💚 WhatsApp</h3>
+        <div class="stack">
+          <div data-en="Tap to start a chat on WhatsApp. 💬" data-ar="اضغط لبدء محادثة على واتساب. 💬">Tap to start a chat on WhatsApp. 💬</div>
+        </div>
+      </a>
+      <a class="card hoverable" href="https://t.me/AECYBERTVBOT" target="_blank" rel="noopener" style="display:block">
+        <h3 data-en="🤖 Telegram Sales Bot" data-ar="🤖 بوت المبيعات على تيليجرام">🤖 Telegram Sales Bot</h3>
+        <div class="stack">
+          <div data-en="Open @AECYBERTVBOT for subscriptions & renewals. 🚀" data-ar="افتح @AECYBERTVBOT للاشتراكات والتجديد. 🚀">Open @AECYBERTVBOT for subscriptions & renewals. 🚀</div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="container">
+  <small class="note">AECyberTV • All rights reserved.</small>
+</footer>
+
+<script>
+  // Bilingual toggle — EN/AR
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      const en = el.getAttribute('data-en');
+      const ar = el.getAttribute('data-ar');
+      el.textContent = lang === 'ar' ? (ar || en) : (en || ar || el.textContent);
+    });
+    document.querySelector('#lang_en').classList.toggle('active', lang==='en');
+    document.querySelector('#lang_ar').classList.toggle('active', lang==='ar');
+    localStorage.setItem('aec_lang_min', lang);
+  }
+  document.querySelector('#lang_en').addEventListener('click', ()=>setLang('en'));
+  document.querySelector('#lang_ar').addEventListener('click', ()=>setLang('ar'));
+  setLang(localStorage.getItem('aec_lang_min') || 'en');
+
+  // Active tab swap (Players/Contact)
+  const tabs = document.querySelectorAll('#top-tabs .tab');
+  function setActive(id){ tabs.forEach(t => { const href = t.getAttribute('href') || ''; t.classList.toggle('active', href === '#' + id); }); }
+  window.addEventListener('hashchange', () => setActive(location.hash.replace('#','') || 'players'));
+  setActive((location.hash || '#players').replace('#',''));
+</script>
+</body>
+</html>
