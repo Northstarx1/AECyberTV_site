@@ -91,10 +91,10 @@
       .top-tabs .tab{ padding: 8px 10px; font-size: 14px; }
     }
     
-    /* offers-colorful-extra */
-    #offers .btn.primary{ background:#ff6600; border-color:#ff6600; color:#fff; }
-    #offers .btn.primary:hover{ background:#ff8533; }
     
+/* flash-offer override */
+.hidden{display:none !important;}
+
 </style>
 </head>
 <body>
@@ -170,7 +170,7 @@
         <div class="card hoverable">
           <h3 data-en="AECyberTV Executive — AED 200" data-ar="AECyberTV تنفيذي — 200 درهم">AECyberTV Executive — AED 200</h3>
           <div class="stack">
-            <div class="note" data-en="16k+ Live • 24k+ Movies • 14k+ Series • 2 devices • SD/HD/FHD/4K" data-ar="16k+ قناة • 24k+ فيلم • 14k+ مسلسل • جهازان • SD/HD/FHD/4K">16k+ Live • 24k+ Movies • 14k+ Series • 2 devices • SD/HD/FHD/4K</div>
+            <div class="note" data-en="16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K" data-ar="16k+ قناة • 24k+ فيلم • 14k+ مسلسل • SD/HD/FHD/4K">16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K</div>
             <a class="btn primary" href="https://buy.stripe.com/8x23cw07zghi4M0ejD5kk05" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
           </div>
         </div>
@@ -193,15 +193,27 @@
     <!-- Offers (time-bound, conditional titles + detailed current offer) -->
     
     <!-- Offers (time-bound, conditional titles + detailed colorful cards for current offer) -->
+    
+    <!-- Offers (time-bound, colorful cards with correct CTA + aligned grid) -->
+    
+    <!-- Offers (time-bound, colorful cards, per-package links, aligned grid) -->
+    
+    <!-- Offers (time-bound, colorful cards, OFFER_LINKS placeholders) -->
+    
+    <!-- Offers (synced to bot: single offer-level CTA) -->
+    
+    <!-- Offers (time-bound; current offer uses Xmas/New Year per-package links) -->
+    
+    <!-- Offers (match Packages design) -->
     <section id="offers" class="section">
-      <h2>🔥 Offers Available Now</h2>
+      <h2 data-en="🔥 Offers Available Now" data-ar="🔥 العروض المتاحة الآن">🔥 Offers Available Now</h2>
       <div id="offers_grid" class="grid"></div>
       <noscript>
-        <div class="note">Offers require JavaScript to display.</div>
+        <div class="note" data-en="Offers require JavaScript to display." data-ar="تحتاج العروض إلى JavaScript لعرضها.">Offers require JavaScript to display.</div>
       </noscript>
     </section>
     <script>
-      // Time-bound offers in UAE time (+04:00)
+      // Offer windows (UAE time +04:00)
       const AEC_OFFERS = [
         { id: "early_offer_nov2025", start: "2025-11-06T00:00:00+04:00", end: "2025-11-30T23:59:59+04:00" },
         { id: "uae_national_day_2025", start: "2025-12-01T00:00:00+04:00", end: "2025-12-07T23:59:59+04:00",
@@ -210,92 +222,75 @@
           title_en: "🎄 Christmas & New Year Offer", title_ar: "🎄 عرض الكريسماس ورأس السنة" }
       ];
 
-      // Stripe links
-      const PAY = {
-        kids: "https://buy.stripe.com/3cIbJ29I94yA92g2AV5kk04",
-        casual: "https://buy.stripe.com/6oU6oIf2t8OQa6kejD5kk03",
-        executive: "https://buy.stripe.com/8x23cw07zghi4M0ejD5kk05",
-        premium: "https://buy.stripe.com/eVq00k7A15CE92gdfz5kk01"
+      // Payment links (current live offer uses Xmas/New Year set as requested)
+      const PAY_CURRENT = {
+        kids:      "https://buy.stripe.com/cNi3cw5rTc12baoejD5kk0e",
+        casual:    "https://buy.stripe.com/cNi8wQ3jL1moa6k1wR5kk0g",
+        executive: "https://buy.stripe.com/8x200kbQh7KM3HW1wR5kk0d",
+        premium:   "https://buy.stripe.com/aFa00k7A1e9aces2AV5kk0f"
+      };
+      const PAY_NATIONAL_DAY = {
+        kids:      "https://buy.stripe.com/9B6fZi4nP0ik1zO0sN5kk0b",
+        casual:    "https://buy.stripe.com/aFaaEYf2t9SU0vK7Vf5kk09",
+        executive: "https://buy.stripe.com/28EaEY07zghi5Q45N75kk0c",
+        premium:   "https://buy.stripe.com/28EbJ26vXc12emA3EZ5kk0a"
       };
 
-      // Current Early Bird prices
-      const EARLY_BIRD_PRICES = {
-        kids: 50, casual: 50, executive: 150, premium: 200
-      };
+      // Prices to show on cards for the current offer (Early Bird window now)
+      const PRICES = { kids: 50, casual: 50, executive: 150, premium: 200 };
 
-      // Package details (EN/AR)
-      const PKG = {
-        kids: {
-          name_en: "AECyberTV Kids", name_ar: "AECyberTV أطفال",
-          bullets_en: ["Kids-safe channels","Cartoons & Educational shows","Works on 1 device"],
-          bullets_ar: ["قنوات للأطفال","كرتون وبرامج تعليمية","يعمل على جهاز واحد"],
-          color: "#FDD835" // warm yellow
-        },
-        casual: {
-          name_en: "AECyberTV Casual", name_ar: "AECyberTV عادي",
-          bullets_en: ["10,000+ Live Channels","70,000+ Movies (VOD)","12,000+ Series","Works on 1 device"],
-          bullets_ar: ["أكثر من 10,000 قناة مباشرة","70,000+ فيلم (VOD)","12,000+ مسلسل","يعمل على جهاز واحد"],
-          color: "#42A5F5" // blue
-        },
-        executive: {
-          name_en: "AECyberTV Executive", name_ar: "AECyberTV تنفيذي",
-          bullets_en: ["16,000+ Live Channels","24,000+ Movies (VOD)","14,000+ Series","2 devices • SD/HD/FHD/4K"],
-          bullets_ar: ["16,000+ قناة مباشرة","24,000+ فيلم (VOD)","14,000+ مسلسل","جهازان • SD/HD/FHD/4K"],
-          color: "#66BB6A" // green
-        },
-        premium: {
-          name_en: "AECyberTV Premium", name_ar: "AECyberTV بريميوم",
-          bullets_en: ["Full combo package","65,000+ Live Channels","180,000+ Movies (VOD)","10,000+ Series","Priority support"],
-          bullets_ar: ["باقة كاملة شاملة","65,000+ قناة مباشرة","180,000+ فيلم (VOD)","10,000+ مسلسل","دعم أولوية"],
-          color: "#EF5350" // red
-        }
+      // Single-line summaries to match packages design
+      const SUMMARY = {
+        kids:      { en: "Kids-safe channels • Cartoons & Educational • 1 device", ar: "قنوات للأطفال • كرتون وتعليمي • جهاز واحد" },
+        casual:    { en: "10k+ Live • 70k+ Movies • 12k+ Series • 1 device",     ar: "10k+ مباشر • 70k+ أفلام • 12k+ مسلسلات • جهاز واحد" },
+        executive: { en: "16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K", ar: "16k+ مباشر • 24k+ أفلام • 14k+ مسلسلات • SD/HD/FHD/4K" },
+        premium:   { en: "65k+ Live • 180k+ Movies • 10k+ Series • Priority support", ar: "65k+ مباشر • 180k+ أفلام • 10k+ مسلسلات • دعم أولوية" }
       };
 
       function isRTL(){
         return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
       }
-
-      function pillStyle(hex){
-        return `background:${hex}; color:#000; border-radius:999px; padding:6px 10px; font-weight:700; display:inline-block;`;
+      function nameFor(key){
+        const en = {
+          kids: "AECyberTV Kids",
+          casual: "AECyberTV Casual",
+          executive: "AECyberTV Executive",
+          premium: "AECyberTV Premium"
+        };
+        const ar = {
+          kids: "AECyberTV أطفال",
+          casual: "AECyberTV عادي",
+          executive: "AECyberTV تنفيذي",
+          premium: "AECyberTV بريميوم"
+        };
+        return isRTL() ? ar[key] : en[key];
       }
-      function borderStyle(hex){
-        return `border:2px solid ${hex}33;`;
+      function payText(){ return isRTL() ? "ادفع الآن" : "Pay Now"; }
+      function currency(){ return "AED"; }
+      function titleForWindow(id){
+        if (id === "uae_national_day_2025")  return isRTL() ? "🇦🇪 اليوم الوطني — خصم 54%" : "🇦🇪 UAE National Day — 54% OFF";
+        if (id === "xmas_newyear_2025_2026") return isRTL() ? "🎄 عرض الكريسماس ورأس السنة" : "🎄 Christmas & New Year Offer";
+        return null; // Early Bird shows no internal title
       }
 
-      function pkgCard(key){
-        const rtl = isRTL();
-        const p = PKG[key];
-        const price = EARLY_BIRD_PRICES[key];
-        const bullets = (rtl ? p.bullets_ar : p.bullets_en)
-          .map(b => `<li>• ${b}</li>`).join("");
-        const name = rtl ? p.name_ar : p.name_en;
-        const btn = rtl ? "ادفع الآن" : "Pay Now";
-        const currency = "AED";
-
+      // Render a packages-like card
+      function card(key, price, href){
+        const nm = nameFor(key);
+        const sum = isRTL() ? SUMMARY[key].ar : SUMMARY[key].en;
+        const label = `${nm} — ${currency()} ${price}`;
         return `
-          <div class="card hoverable" style="${borderStyle(p.color)}">
+          <div class="card hoverable">
+            <h3>${label}</h3>
             <div class="stack">
-              <div style="${pillStyle(p.color)}">${name}</div>
-              <div class="price" style="margin-top:6px;">${currency} ${price}</div>
-              <ul class="note ${rtl?'ar':''}" ${rtl?'dir="rtl"':''}>${bullets}</ul>
-              <a class="btn primary" target="_blank" rel="noopener" href="${PAY[key]}">${btn}</a>
+              <div class="note">${sum}</div>
+              <a class="btn primary" target="_blank" rel="noopener" href="${href}">${payText()}</a>
             </div>
           </div>
         `;
       }
 
-      function renderEarlyBirdDetailColorful(){
-        // four colorful cards in a responsive grid
-        return `
-          <div class="grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
-            ${['kids','casual','executive','premium'].map(pkgCard).join('')}
-          </div>
-          <div class="note" style="margin-top:8px;">${isRTL() ? "الأسعار بالدرهم الإماراتي. جميع الباقات لمدة 12 شهر." : "Prices in AED. All plans are 12 months."}</div>
-        `;
-      }
-
-      function showTitleFor(id){
-        return id === "uae_national_day_2025" || id === "xmas_newyear_2025_2026";
+      function grid(cardsHtml){
+        return `<div class="grid">${cardsHtml}</div>`;
       }
 
       function renderOffers(){
@@ -310,33 +305,35 @@
           return now >= s && now <= e;
         });
 
-        if(active.length === 0){
-          elSection.style.display = 'none';
+        if(active.length === 0){ elSection.style.display = 'none'; return; }
+
+        // Early Bird window (now) — use Xmas/New Year per‑package links as requested
+        if (active.some(o => o.id === "early_offer_nov2025")){
+          const cards = ['kids','casual','executive','premium']
+            .map(k => card(k, PRICES[k], (PAY_CURRENT[k]))).join('');
+          el.innerHTML = grid(cards);
           return;
         }
 
-        // If Early Bird is active, show colorful detailed cards with Pay links
-        const isEarlyBirdActive = active.some(o => o.id === "early_offer_nov2025");
-        if (isEarlyBirdActive){
-          el.innerHTML = renderEarlyBirdDetailColorful();
+        // National Day window — show a title card like packages header and cards under it
+        if (active.some(o => o.id === "uae_national_day_2025")){
+          const title = titleForWindow("uae_national_day_2025");
+          const headerCard = `<div class="card hoverable"><div class="stack"><h3>${title}</h3></div></div>`;
+          const cards = ['kids','casual','executive','premium']
+            .map(k => card(k, PRICES[k], (PAY_NATIONAL_DAY[k]))).join('');
+          el.innerHTML = headerCard + grid(cards);
           return;
         }
 
-        // Otherwise, standard titled cards for the other offers (no dates)
-        el.innerHTML = active.map(o => {
-          const title = isRTL() ? (o.title_ar || "") : (o.title_en || "");
-          const wantTitle = showTitleFor(o.id);
-          return `
-            <div class="card hoverable">
-              <div class="stack">
-                ${wantTitle ? `<h3>${title}</h3>` : ``}
-                <a class="btn" href="#" onclick="alert('${isRTL() ? 'تفاصيل العرض ستُضاف هنا' : 'Offer details will be added here'}'); return false;">
-                  ${isRTL() ? "Grab Your Offer" : "Grab Your Offer"}
-                </a>
-              </div>
-            </div>
-          `;
-        }).join('');
+        // Xmas/New Year window — show title card + the current per‑package links
+        if (active.some(o => o.id === "xmas_newyear_2025_2026")){
+          const title = titleForWindow("xmas_newyear_2025_2026");
+          const headerCard = `<div class="card hoverable"><div class="stack"><h3>${title}</h3></div></div>`;
+          const cards = ['kids','casual','executive','premium']
+            .map(k => card(k, PRICES[k], (PAY_CURRENT[k]))).join('');
+          el.innerHTML = headerCard + grid(cards);
+          return;
+        }
       }
 
       document.addEventListener('DOMContentLoaded', renderOffers);
@@ -348,6 +345,12 @@
         };
       }
     </script>
+
+
+
+
+
+
 
 
 
@@ -495,6 +498,83 @@
   })();
 </script>
 
+
+
+<!-- 1-hour Flash Offer Override -->
+<script>
+  (function(){
+    // Override window in UAE time (+04:00)
+    const OVERRIDE_START = new Date("2025-11-07T12:44:22+04:00").getTime();
+    const OVERRIDE_END   = new Date("2025-11-07T13:44:22+04:00").getTime();
+
+    const secPackages = document.getElementById('packages');
+    const secOffers   = document.getElementById('offers');
+
+    function applyOverride(){
+      if(!secPackages || !secOffers) return;
+
+      const now = Date.now();
+      const within = now >= OVERRIDE_START && now <= OVERRIDE_END;
+
+      if (within) {
+        // Show only Offers
+        secPackages.classList.add('hidden');
+        secOffers.classList.remove('hidden');
+      } else if (now > OVERRIDE_END) {
+        // Revert: hide Offers, show Packages
+        secOffers.classList.add('hidden');
+        secPackages.classList.remove('hidden');
+      } else {
+        // Before start (unlikely), default layout
+        secOffers.classList.remove('hidden');
+        secPackages.classList.remove('hidden');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', applyOverride);
+    // Re-check every 30s in case the hour elapses while the user is on the page
+    setInterval(applyOverride, 30000);
+  })();
+</script>
+
+
+<!-- Flash navigation routing: Packages tab -> Offers when flash is active -->
+<script>
+  (function(){
+    // Match the same override window values defined earlier in the file
+    // We read them from the previous script if present; otherwise we fallback to now..now+1h.
+    // But simplest: duplicate constants safely (kept consistent by generation time).
+    const OVERRIDE_START = (function(){
+      try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_START\s*=\s*new Date\("([^"]+)/)[1]).getTime(); }
+      catch(e){ return Date.now(); }
+    })();
+    const OVERRIDE_END = (function(){
+      try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_END\s*=\s*new Date\("([^"]+)/)[1]).getTime(); }
+      catch(e){ return Date.now() + 3600*1000; }
+    })();
+
+    function flashActive(){ const now = Date.now(); return now >= OVERRIDE_START && now <= OVERRIDE_END; }
+
+    function wireNavHijack(){
+      var pkgLink = document.querySelector('a[href="#packages"]');
+      var offersEl = document.getElementById('offers');
+      if(!pkgLink || !offersEl) return;
+
+      // Always rebind to reflect current window state
+      pkgLink.addEventListener('click', function(e){
+        if(flashActive()){
+          e.preventDefault();
+          // Scroll to offers instead
+          offersEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Optionally update URL hash to #offers
+          try { history.replaceState(null, '', '#offers'); } catch(_){}
+        } // else allow default
+      }, { passive:false });
+    }
+
+    document.addEventListener('DOMContentLoaded', wireNavHijack);
+  })();
+</script>
 
 </body>
 </html>
