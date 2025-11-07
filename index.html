@@ -95,6 +95,214 @@
 /* flash-offer override */
 .hidden{display:none !important;}
 
+
+/* enlarge AE Cyber TV logo */
+.logo img { height: 70px !important; width: auto !important; }
+
+
+/* === Centered, medium-big logo === */
+.logo, header .logo, .site-header .logo, nav .logo {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  padding: 8px 0 !important;
+}
+.logo img {
+  height: 100px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+/* Ensure the nav below is centered and doesn't crowd the logo */
+nav, .navbar, .topnav, .tabs, .tabbar {
+  justify-content: center !important;
+  text-align: center !important;
+}
+nav ul, .tabs ul {
+  display: inline-flex !important;
+  gap: 10px;
+}
+/* Responsive: slightly reduce logo on very small screens */
+@media (max-width: 480px){
+  .logo img { height: 80px !important; }
+}
+
+
+/* offers-grid-layout: 1 mobile, 2 tablet, 4 desktop */
+#offers .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 700px){
+  #offers .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px){
+  #offers .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+
+/* === Force 4-in-a-row Offers on desktop === */
+#offers .grid {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100% !important;
+  max-width: none !important;
+}
+@media (min-width: 700px){
+  #offers .grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+@media (min-width: 1100px){
+  #offers .grid { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
+}
+/* Prevent nested wrappers from constraining width */
+#offers .section, #offers .container, #offers .stack, #offers .card {
+  max-width: none !important;
+}
+#offers { width: 100% !important; }
+/* Ensure cards fill their grid cell evenly */
+#offers .card { height: 100%; }
+
+
+/* === HARD OVERRIDE for desktop: Offers in ONE row (4 cards) === */
+@media (min-width: 1024px){
+  #offers .grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #offers .card {
+    min-width: 0 !important;  /* prevent cards from forcing wrap */
+    width: 100% !important;
+  }
+  /* Neutralize any parent container limits for Offers only */
+  #offers, #offers .section, #offers .container, #offers .stack {
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+
+
+/* === FINAL OVERRIDE: single row via flex on desktop === */
+@media (min-width: 1024px){
+  #offers #offers_grid,
+  #offers .grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #offers .grid > .card,
+  #offers #offers_grid > .card {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+  }
+}
+
+
+/* === Offer cards: make #offers_grid the grid container (no nested .grid) === */
+#offers #offers_grid.offers-grid-4 {
+  display: grid !important;
+  gap: 16px !important;
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px){
+  #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+@media (min-width: 1100px){
+  #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
+}
+/* Ensure cards don't force wrapping */
+#offers #offers_grid.offers-grid-4 > .card { min-width: 0 !important; height: 100%; }
+
+
+/* OFFERS rebuilt grid (single container): 1 mobile, 2 tablet, 4 desktop */
+#offers #offers_grid.offers-grid-4{
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100% !important;
+  max-width: none !important;
+}
+@media (min-width: 700px){
+  #offers #offers_grid.offers-grid-4{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+@media (min-width: 1100px){
+  #offers #offers_grid.offers-grid-4{ grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
+}
+
+
+
+/* Keep original grid sizing; center the 5th player card only */
+@media (min-width: 700px){
+  /* Tablets: 2 columns — make the 5th span full row and center */
+  #players .grid > .card:nth-child(5){
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+@media (min-width: 1100px){
+  /* Desktop: 4 columns — place the 5th in column 2 to visually center row */
+  #players .grid > .card:nth-child(5){
+    grid-column: 2 / 3;
+    justify-self: center;
+  }
+}
+
+
+/* Center the last player card if the count is odd (e.g., 5 cards) */
+@media (min-width: 700px){
+  #players .grid > .card:last-child:nth-child(odd){
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+
+
+/* 5th player: full-width rectangle below the two above (2x2 + 1 wide) */
+@media (min-width: 700px){
+  /* Keep players grid as it was (2 columns), just make the 5th span both columns */
+  #players .grid > .card:nth-child(5){
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
+    align-self: start;
+  }
+}
+
+
+/* === Pay Warning Modal === */
+#payWarningBackdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,.65);
+  display: none; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+#payWarningModal {
+  width: min(520px, 92vw);
+  background: #111217; color: #fff;
+  border: 1px solid #23242a; border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  padding: 18px;
+}
+#payWarningModal h3 { margin: 0 0 8px; font-size: 18px; }
+#payWarningModal p  { margin: 0 0 16px; color: #a9acb3; line-height: 1.5; }
+#payWarningActions { display: flex; justify-content: flex-end; gap: 8px; }
+#payOkBtn {
+  background: var(--accent, #ff7b00); color: #000; font-weight: 700;
+  border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255,123,0,.4);
+}
+#payOkBtn:hover { filter: brightness(.95); }
+
 </style>
 </head>
 <body>
@@ -214,7 +422,7 @@
     </section>
     <script>
       // Offer windows (UAE time +04:00)
-      const AEC_OFFERS = [
+      \1{ id: "current_offer_nov2025", start: "2025-11-07T00:00:00+04:00", end: "2025-11-20T23:59:59+04:00" },
         { id: "early_offer_nov2025", start: "2025-11-06T00:00:00+04:00", end: "2025-11-30T23:59:59+04:00" },
         { id: "uae_national_day_2025", start: "2025-12-01T00:00:00+04:00", end: "2025-12-07T23:59:59+04:00",
           title_en: "🇦🇪 UAE National Day — 54% OFF", title_ar: "🇦🇪 اليوم الوطني — خصم 54%" },
@@ -289,8 +497,8 @@
         `;
       }
 
-      function grid(cardsHtml){
-        return `<div class="grid">${cardsHtml}</div>`;
+      function grid(cardsHtml){ const el = document.getElementById("offers_grid"); if(!el) return ""; el.classList.add("offers-grid-4"); return cardsHtml; }
+</div>`;
       }
 
       function renderOffers(){
@@ -311,7 +519,7 @@
         if (active.some(o => o.id === "early_offer_nov2025")){
           const cards = ['kids','casual','executive','premium']
             .map(k => card(k, PRICES[k], (PAY_CURRENT[k]))).join('');
-          el.innerHTML = grid(cards);
+          const _el=document.getElementById("offers_grid"); if(_el){ _el.classList.add("offers-grid-4"); _el.innerHTML=cards; }
           return;
         }
 
@@ -321,7 +529,7 @@
           const headerCard = `<div class="card hoverable"><div class="stack"><h3>${title}</h3></div></div>`;
           const cards = ['kids','casual','executive','premium']
             .map(k => card(k, PRICES[k], (PAY_NATIONAL_DAY[k]))).join('');
-          el.innerHTML = headerCard + grid(cards);
+          const _el=document.getElementById("offers_grid"); if(_el){ _el.classList.add("offers-grid-4"); _el.innerHTML=cards; }
           return;
         }
 
@@ -331,7 +539,7 @@
           const headerCard = `<div class="card hoverable"><div class="stack"><h3>${title}</h3></div></div>`;
           const cards = ['kids','casual','executive','premium']
             .map(k => card(k, PRICES[k], (PAY_CURRENT[k]))).join('');
-          el.innerHTML = headerCard + grid(cards);
+          const _el=document.getElementById("offers_grid"); if(_el){ _el.classList.add("offers-grid-4"); _el.innerHTML=cards; }
           return;
         }
       }
@@ -574,6 +782,155 @@
 
     document.addEventListener('DOMContentLoaded', wireNavHijack);
   })();
+</script>
+
+
+<script>
+(function(){
+  // Payment links (current live offer = Christmas & New Year)
+  const PAY_CURRENT = {
+    kids:      "https://buy.stripe.com/cNi3cw5rTc12baoejD5kk0e",
+    casual:    "https://buy.stripe.com/cNi8wQ3jL1moa6k1wR5kk0g",
+    executive: "https://buy.stripe.com/8x200kbQh7KM3HW1wR5kk0d",
+    premium:   "https://buy.stripe.com/aFa00k7A1e9aces2AV5kk0f"
+  };
+  // Card labels (same style as packages)
+  const PRICES = { kids: 50, casual: 50, executive: 150, premium: 200 };
+  const NAMES = {
+    en: { kids:"AECyberTV Kids", casual:"AECyberTV Casual", executive:"AECyberTV Executive", premium:"AECyberTV Premium" },
+    ar: { kids:"AECyberTV أطفال", casual:"AECyberTV عادي", executive:"AECyberTV تنفيذي", premium:"AECyberTV بريميوم" }
+  };
+  const SUMMARY = {
+    kids:      { en: "Kids-safe channels • Cartoons & Educational • 1 device", ar: "قنوات للأطفال • كرتون وتعليمي • جهاز واحد" },
+    casual:    { en: "10k+ Live • 70k+ Movies • 12k+ Series • 1 device",      ar: "10k+ مباشر • 70k+ أفلام • 12k+ مسلسلات • جهاز واحد" },
+    executive: { en: "16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K",  ar: "16k+ مباشر • 24k+ أفلام • 14k+ مسلسلات • SD/HD/FHD/4K" },
+    premium:   { en: "65k+ Live • 180k+ Movies • 10k+ Series • Priority support", ar: "65k+ مباشر • 180k+ أفلام • 10k+ مسلسلات • دعم أولوية" }
+  };
+
+  function isRTL(){
+    return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
+  }
+  function payText(){ return isRTL() ? "ادفع الآن" : "Pay Now"; }
+  function nameFor(key){
+    return (isRTL() ? NAMES.ar[key] : NAMES.en[key]) || key;
+  }
+
+  function card(key){
+    const label = `${nameFor(key)} — AED ${PRICES[key]}`;
+    const sum = isRTL() ? SUMMARY[key].ar : SUMMARY[key].en;
+    const href = PAY_CURRENT[key];
+    return `
+      <div class="card hoverable">
+        <h3>${label}</h3>
+        <div class="stack">
+          <div class="note">${sum}</div>
+          <a class="btn primary" target="_blank" rel="noopener" href="${href}">${payText()}</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderOffersNow(){
+    const grid = document.getElementById('offers_grid');
+    if(!grid) return;
+    grid.classList.add('offers-grid-4'); // single container
+    const keys = ['kids','casual','executive','premium'];
+    grid.innerHTML = keys.map(card).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', renderOffersNow);
+  if (typeof window.setLang === 'function'){
+    const _orig = window.setLang;
+    window.setLang = function(lang){
+      _orig(lang);
+      renderOffersNow();
+    };
+  }
+})();
+</script>
+
+
+<!-- Date-bound Packages hide / Offers show (Nov 7–20, 2025, UAE) -->
+<script>
+(function(){
+  const START = new Date("2025-11-07T00:00:00+04:00").getTime();
+  const END   = new Date("2025-11-20T23:59:59+04:00").getTime();
+  function within(){ const now = Date.now(); return now >= START && now <= END; }
+  function apply(){
+    const p = document.getElementById('packages'); const o = document.getElementById('offers');
+    if(!p||!o) return;
+    if (within()){ p.classList.add('hidden'); o.classList.remove('hidden'); }
+    else { p.classList.remove('hidden'); }
+  }
+  function navHijack(){
+    const link = document.querySelector('a[href="#packages"]'); const o = document.getElementById('offers');
+    if(!link||!o) return;
+    link.addEventListener('click', function(e){
+      if(within()){ e.preventDefault(); o.scrollIntoView({behavior:'smooth',block:'start'}); try{history.replaceState(null,'','#offers');}catch(_){} }
+    }, {passive:false});
+  }
+  document.addEventListener('DOMContentLoaded', function(){ apply(); navHijack(); setInterval(apply, 30000); });
+})();
+</script>
+
+
+<!-- Pay Warning Modal -->
+<div id="payWarningBackdrop" role="dialog" aria-modal="true" aria-labelledby="payWarnTitle">
+  <div id="payWarningModal" class="card">
+    <h3 id="payWarnTitle">⚠️ Before you pay</h3>
+    <p>Please make sure to fill in your <b>name</b>, <b>email</b>, and <b>phone number</b> in the payment form so we can send your subscription.</p>
+    <div id="payWarningActions">
+      <button id="payOkBtn" type="button">OK</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  const backdrop = document.getElementById('payWarningBackdrop');
+  const okBtn = document.getElementById('payOkBtn');
+  let pendingHref = null;
+
+  function showWarning(href){
+    pendingHref = href;
+    if (backdrop) backdrop.style.display = 'flex';
+  }
+  function hideWarning(){
+    if (backdrop) backdrop.style.display = 'none';
+  }
+  function proceed(){
+    if (pendingHref){
+      window.open(pendingHref, '_blank', 'noopener');
+      pendingHref = null;
+    }
+    hideWarning();
+  }
+
+  // Attach handlers after DOM is ready
+  function wirePayButtons(){
+    const payBtns = Array.from(document.querySelectorAll('#packages a.btn.primary, #offers a.btn.primary'))
+      .filter(a => /pay now/i.test(a.textContent || ''));
+    payBtns.forEach(a => {
+      a.addEventListener('click', function(e){
+        try{
+          // only intercept left click / keyboard activation
+          e.preventDefault();
+        }catch(_){}
+        const href = a.getAttribute('href');
+        if (href) showWarning(href);
+      }, { passive:false });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', wirePayButtons);
+  if (okBtn) okBtn.addEventListener('click', proceed);
+
+  // Also close modal on Escape
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape') { hideWarning(); }
+  });
+})();
 </script>
 
 </body>
