@@ -23,7 +23,7 @@
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.65}
     a{color:inherit;text-decoration:none}
     .container{width:min(1100px,92vw);margin:0 auto;padding:24px}
-    .nav{position:sticky;top:0;z-index:10;background:rgba(11,11,12,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{position:sticky;top:0;z-index:10;background:rgba(51, 51, 60, 0.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
     .brand img{height:28px;width:auto;border-radius:6px}
@@ -49,9 +49,63 @@
     @media (max-width:900px){.grid{grid-template-columns:1fr}}
     [dir="rtl"] .nav-inner{flex-direction:row-reverse}
     [dir="rtl"] .grid,[dir="rtl"] .hero{direction:rtl}
-  </style>
+  
+    /* hero-grid-2 */
+    .hero-grid-2{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width:900px){.hero-grid-2{grid-template-columns:1fr 1fr}}
+    
+
+    
+    
+    /* top-tabs-styles */
+    html { scroll-behavior: smooth; }
+    /* Anchor offset so sticky bar doesn't cover headings */
+    :is(#home,#packages,#players,#contact){ scroll-margin-top: 84px; }
+    .top-tabs{
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .top-tabs .tabs-inner{
+      max-width: 1100px; margin: 0 auto; padding: 8px 12px;
+      display: flex; justify-content: center; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .top-tabs .tab{
+      color: #fff; text-decoration: none;
+      padding: 8px 14px; border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .top-tabs .tab:hover{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .top-tabs .tab.active{
+      background: rgba(255,255,255,0.06);
+      border-color: var(--border);
+      color:#fff;
+    }
+    @media (max-width: 600px){
+      .top-tabs .tabs-inner{ padding: 8px; gap: 10px; }
+      .top-tabs .tab{ padding: 8px 10px; font-size: 14px; }
+    }
+    </style>
 </head>
 <body>
+<div id="home"></div>
+
+
+<nav id="top-tabs" class="top-tabs" role="navigation" aria-label="Primary">
+  <div class="tabs-inner">
+    <a href="#home" class="tab" data-en="Home" data-ar="الرئيسية">🏠 Home</a>
+    <a href="#packages" class="tab" data-en="Packages" data-ar="الباقات">🎁 Packages</a>
+    <a href="#players" class="tab" data-en="Players" data-ar="التطبيقات">🎬 Players</a>
+    <a href="#contact" class="tab" data-en="Contact" data-ar="تواصل">📞 Contact</a>
+  </div>
+</nav>
+
+
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand">
@@ -65,19 +119,165 @@
     </div>
   </nav>
 
-  <header class="hero container">
+  
+<header class="hero container">
+  <div class="hero-grid-2">
     <div class="card hoverable">
       <span class="badge" data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</span>
-      <h1 class="brand-name" data-en="Official Players & Downloads" data-ar="🎬 التطبيقات الرسمية وروابط التحميل">Official Players & Downloads</h1>
+      <h1 class="brand-name" data-en="Official Players & Downloads" data-ar="التطبيقات الرسمية وروابط التحميل">Official Players & Downloads</h1>
       <p class="tagline note" data-en="All apps use Server Number 7765. 🔢" data-ar="جميع التطبيقات تستخدم رقم الخادم 7765. 🔢">All apps use Server Number 7765. 🔢</p>
       <div class="cta-row">
-        <a class="btn primary" href="#players" data-en="Open Players" data-ar="فتح التطبيقات">Open Players</a>
-        <a class="btn" href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
+        <a class="btn primary" href="#players" data-en="Open Players" data-ar="فتح التطبيقات">🎮 Open Players</a>
       </div>
     </div>
-  </header>
+
+    <div class="card hoverable">
+      <span class="badge" data-en="🎁 Packages & Offers" data-ar="🎁 الباقات والعروض">🎁 Packages & Offers</span>
+      <h1 class="brand-name" data-en="Choose your plan & see deals" data-ar="اختر باقتك وشاهد العروض">Choose your plan & see deals</h1>
+      <p class="tagline note" data-en="12‑month plans • AED pricing • Time-bound offers" data-ar="باقات لمدة 12 شهر • الأسعار بالدرهم • عروض مرتبطة بالوقت">12‑month plans • AED pricing • Time-bound offers</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#packages" data-en="Packages & Offers" data-ar="الباقات والعروض">📦 Packages & Offers</a>
+      </div>
+    </div>
+  </div>
+</header>
+
 
   <main class="container">
+    <!-- Packages -->
+    <section id="packages" class="section">
+      <h2 data-en="🎁 Packages" data-ar="🎁 الباقات">🎁 Packages</h2>
+      <div class="grid">
+        <div class="card hoverable">
+          <h3 data-en="AECyberTV Kids — AED 70" data-ar="AECyberTV أطفال — 70 درهم">AECyberTV Kids — AED 70</h3>
+          <div class="stack">
+            <div class="note" data-en="Kids-safe channels • Cartoons & Educational • 1 device" data-ar="قنوات للأطفال • كرتون وتعليمي • جهاز واحد">Kids-safe channels • Cartoons & Educational • 1 device</div>
+            <a class="btn primary" href="https://buy.stripe.com/3cIbJ29I94yA92g2AV5kk04" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <h3 data-en="AECyberTV Casual — AED 75" data-ar="AECyberTV عادي — 75 درهم">AECyberTV Casual — AED 75</h3>
+          <div class="stack">
+            <div class="note" data-en="10k+ Live • 70k+ Movies • 12k+ Series • 1 device" data-ar="أكثر من 10k قناة • 70k فيلم • 12k مسلسل • جهاز واحد">10k+ Live • 70k+ Movies • 12k+ Series • 1 device</div>
+            <a class="btn primary" href="https://buy.stripe.com/6oU6oIf2t8OQa6kejD5kk03" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <h3 data-en="AECyberTV Executive — AED 200" data-ar="AECyberTV تنفيذي — 200 درهم">AECyberTV Executive — AED 200</h3>
+          <div class="stack">
+            <div class="note" data-en="16k+ Live • 24k+ Movies • 14k+ Series • 2 devices • SD/HD/FHD/4K" data-ar="16k+ قناة • 24k+ فيلم • 14k+ مسلسل • جهازان • SD/HD/FHD/4K">16k+ Live • 24k+ Movies • 14k+ Series • 2 devices • SD/HD/FHD/4K</div>
+            <a class="btn primary" href="https://buy.stripe.com/8x23cw07zghi4M0ejD5kk05" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
+          </div>
+        </div>
+        <div class="card hoverable">
+          <h3 data-en="AECyberTV Premium — AED 250" data-ar="AECyberTV بريميوم — 250 درهم">AECyberTV Premium — AED 250</h3>
+          <div class="stack">
+            <div class="note" data-en="Full combo • 65k+ Live • 180k+ Movies • 10k+ Series • Priority support" data-ar="باقة كاملة • 65k+ قناة • 180k+ فيلم • 10k+ مسلسل • دعم أولوية">Full combo • 65k+ Live • 180k+ Movies • 10k+ Series • Priority support</div>
+            <a class="btn primary" href="https://buy.stripe.com/eVq00k7A15CE92gdfz5kk01" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="note" data-en="All plans are for 12 months. Prices in AED." data-ar="كل الباقات لمدة 12 شهر. الأسعار بالدرهم الإماراتي.">All plans are for 12 months. Prices in AED.</div>
+    </section>
+
+    
+    <!-- Offers (time-bound) -->
+    <section id="offers" class="section">
+      <h2 data-en="🔥 Offers" data-ar="🔥 العروض">🔥 Offers</h2>
+      <div id="offers_grid" class="grid"></div>
+      <noscript>
+        <div class="note" data-en="Offers require JavaScript to display." data-ar="العروض تحتاج تفعيل الجافاسكربت للعرض.">Offers require JavaScript to display.</div>
+      </noscript>
+    </section>
+    <script>
+      // Time-bound offers (UAE +04:00). Only render if 'now' is inside start..end.
+      const AEC_OFFERS = [
+        {
+          id: "early_offer_nov2025",
+          title_en: "🕐 Early Bird Offer — Until National Day",
+          title_ar: "🕐 عرض ما قبل اليوم الوطني",
+          start: "2025-11-06T00:00:00+04:00",
+          end:   "2025-11-30T23:59:59+04:00",
+          cta: "https://buy.stripe.com/bJedRa6vXe9aa6k1wR5kk06"
+        },
+        {
+          id: "uae_national_day_2025",
+          title_en: "🇦🇪 UAE National Day — 54% OFF",
+          title_ar: "🇦🇪 اليوم الوطني — خصم 54%",
+          start: "2025-12-01T00:00:00+04:00",
+          end:   "2025-12-07T23:59:59+04:00",
+          cta: "https://buy.stripe.com/bJedRa6vXe9aa6k1wR5kk06"
+        },
+        {
+          id: "xmas_newyear_2025_2026",
+          title_en: "🎄 Christmas & New Year Offer",
+          title_ar: "🎄 عرض الكريسماس ورأس السنة",
+          start: "2025-12-24T00:00:00+04:00",
+          end:   "2026-01-05T23:59:59+04:00",
+          cta: "https://buy.stripe.com/bJedRa6vXe9aa6k1wR5kk06"
+        }
+      ];
+
+      // Helper to detect current language (assumes your page toggles dir/lang)
+      function isRTL(){
+        return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
+      }
+
+      function renderOffers(){
+        const elSection = document.querySelector('#offers');
+        const el = document.querySelector('#offers_grid');
+        if(!el || !elSection) return;
+
+        // Current time according to the browser (offer windows have +04:00 offset embedded)
+        const now = new Date();
+
+        const active = AEC_OFFERS.filter(o => {
+          const s = new Date(o.start).getTime();
+          const e = new Date(o.end).getTime();
+          const n = now.getTime();
+          return n >= s && n <= e;
+        });
+
+        if(active.length === 0){
+          // No active offers: hide the whole section
+          elSection.style.display = 'none';
+          return;
+        }
+
+        // Otherwise, render cards
+        el.innerHTML = active.map(o => {
+          const title = isRTL() ? o.title_ar : o.title_en;
+          const validTxt = isRTL()
+            ? `ساري: ${o.start.slice(0,10)} → ${o.end.slice(0,10)} (بتوقيت الإمارات)`
+            : `Valid: ${o.start.slice(0,10)} → ${o.end.slice(0,10)} (UAE)`;
+
+          return `
+            <div class="card hoverable">
+              <div class="stack">
+                <h3>${title}</h3>
+                <div class="note">${validTxt}</div>
+                <a class="btn" href="${o.cta}" target="_blank" rel="noopener">
+                  ${isRTL() ? "احجز العرض" : "Grab Offer"}
+                </a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Initial and on possible language toggle
+      document.addEventListener('DOMContentLoaded', renderOffers);
+      // If your site has a setLang(lang) function, hook it to re-render offers after language change
+      if (typeof window.setLang === 'function'){
+        const _orig = window.setLang;
+        window.setLang = function(lang){
+          _orig(lang);
+          renderOffers();
+        };
+      }
+    </script>
+
+    
     <!-- Players -->
     <section id="players" class="section">
       <h2 data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</h2>
@@ -176,5 +376,50 @@
     document.querySelector('#lang_ar').addEventListener('click', ()=>setLang('ar'));
     setLang(localStorage.getItem('aec_lang_min') || 'en');
   </script>
+
+
+<script>
+  (function(){
+    const tabs = document.querySelectorAll('#top-tabs .tab');
+    const sections = {
+      home: document.getElementById('home'),
+      packages: document.getElementById('packages'),
+      players: document.getElementById('players'),
+      contact: document.getElementById('contact')
+    };
+    function setActive(id){
+      tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
+    }
+    function onScroll(){
+      const offset = 120; // keep under sticky bar
+      const y = window.scrollY + offset;
+      let current = 'home';
+      for (const [id, el] of Object.entries(sections)){
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (y >= top) current = id;
+      }
+      setActive(current);
+    }
+    // Click handling to ensure smooth scroll to top on Home
+    tabs.forEach(t => {
+      t.addEventListener('click', (e) => {
+        const target = t.getAttribute('href');
+        if (target === '#home'){
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          history.replaceState(null, '', '#home');
+          setActive('home');
+        }
+      });
+    });
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('hashchange', () => setActive(location.hash.replace('#','') || 'home'));
+    setActive(location.hash.replace('#','') || 'home');
+    onScroll();
+  })();
+</script>
+
+
 </body>
 </html>
