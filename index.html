@@ -23,7 +23,7 @@
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.65}
     a{color:inherit;text-decoration:none}
     .container{width:min(1100px,92vw);margin:0 auto;padding:24px}
-    .nav{position:sticky;top:0;z-index:10;background:rgba(51, 51, 60, 0.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{position:sticky;top:0;z-index:10;background:rgba(11,11,12,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
     .brand img{height:28px;width:auto;border-radius:6px}
@@ -90,7 +90,12 @@
       .top-tabs .tabs-inner{ padding: 8px; gap: 10px; }
       .top-tabs .tab{ padding: 8px 10px; font-size: 14px; }
     }
-    </style>
+    
+    /* offers-colorful-extra */
+    #offers .btn.primary{ background:#ff6600; border-color:#ff6600; color:#fff; }
+    #offers .btn.primary:hover{ background:#ff8533; }
+    
+</style>
 </head>
 <body>
 <div id="home"></div>
@@ -182,45 +187,115 @@
 
     
     <!-- Offers (time-bound) -->
+    
+    <!-- Offers (time-bound, conditional titles) -->
+    
+    <!-- Offers (time-bound, conditional titles + detailed current offer) -->
+    
+    <!-- Offers (time-bound, conditional titles + detailed colorful cards for current offer) -->
     <section id="offers" class="section">
-      <h2 data-en="🔥 Offers" data-ar="🔥 العروض">🔥 Offers</h2>
+      <h2>🔥 Offers Available Now</h2>
       <div id="offers_grid" class="grid"></div>
       <noscript>
-        <div class="note" data-en="Offers require JavaScript to display." data-ar="العروض تحتاج تفعيل الجافاسكربت للعرض.">Offers require JavaScript to display.</div>
+        <div class="note">Offers require JavaScript to display.</div>
       </noscript>
     </section>
     <script>
-      // Time-bound offers (UAE +04:00). Only render if 'now' is inside start..end.
+      // Time-bound offers in UAE time (+04:00)
       const AEC_OFFERS = [
-        {
-          id: "early_offer_nov2025",
-          title_en: "🕐 Early Bird Offer — Until National Day",
-          title_ar: "🕐 عرض ما قبل اليوم الوطني",
-          start: "2025-11-06T00:00:00+04:00",
-          end:   "2025-11-30T23:59:59+04:00",
-          cta: "https://buy.stripe.com/bJedRa6vXe9aa6k1wR5kk06"
-        },
-        {
-          id: "uae_national_day_2025",
-          title_en: "🇦🇪 UAE National Day — 54% OFF",
-          title_ar: "🇦🇪 اليوم الوطني — خصم 54%",
-          start: "2025-12-01T00:00:00+04:00",
-          end:   "2025-12-07T23:59:59+04:00",
-          cta: "https://buy.stripe.com/bJedRa6vXe9aa6k1wR5kk06"
-        },
-        {
-          id: "xmas_newyear_2025_2026",
-          title_en: "🎄 Christmas & New Year Offer",
-          title_ar: "🎄 عرض الكريسماس ورأس السنة",
-          start: "2025-12-24T00:00:00+04:00",
-          end:   "2026-01-05T23:59:59+04:00",
-          cta: "https://buy.stripe.com/bJedRa6vXe9aa6k1wR5kk06"
-        }
+        { id: "early_offer_nov2025", start: "2025-11-06T00:00:00+04:00", end: "2025-11-30T23:59:59+04:00" },
+        { id: "uae_national_day_2025", start: "2025-12-01T00:00:00+04:00", end: "2025-12-07T23:59:59+04:00",
+          title_en: "🇦🇪 UAE National Day — 54% OFF", title_ar: "🇦🇪 اليوم الوطني — خصم 54%" },
+        { id: "xmas_newyear_2025_2026", start: "2025-12-24T00:00:00+04:00", end: "2026-01-05T23:59:59+04:00",
+          title_en: "🎄 Christmas & New Year Offer", title_ar: "🎄 عرض الكريسماس ورأس السنة" }
       ];
 
-      // Helper to detect current language (assumes your page toggles dir/lang)
+      // Stripe links
+      const PAY = {
+        kids: "https://buy.stripe.com/3cIbJ29I94yA92g2AV5kk04",
+        casual: "https://buy.stripe.com/6oU6oIf2t8OQa6kejD5kk03",
+        executive: "https://buy.stripe.com/8x23cw07zghi4M0ejD5kk05",
+        premium: "https://buy.stripe.com/eVq00k7A15CE92gdfz5kk01"
+      };
+
+      // Current Early Bird prices
+      const EARLY_BIRD_PRICES = {
+        kids: 50, casual: 50, executive: 150, premium: 200
+      };
+
+      // Package details (EN/AR)
+      const PKG = {
+        kids: {
+          name_en: "AECyberTV Kids", name_ar: "AECyberTV أطفال",
+          bullets_en: ["Kids-safe channels","Cartoons & Educational shows","Works on 1 device"],
+          bullets_ar: ["قنوات للأطفال","كرتون وبرامج تعليمية","يعمل على جهاز واحد"],
+          color: "#FDD835" // warm yellow
+        },
+        casual: {
+          name_en: "AECyberTV Casual", name_ar: "AECyberTV عادي",
+          bullets_en: ["10,000+ Live Channels","70,000+ Movies (VOD)","12,000+ Series","Works on 1 device"],
+          bullets_ar: ["أكثر من 10,000 قناة مباشرة","70,000+ فيلم (VOD)","12,000+ مسلسل","يعمل على جهاز واحد"],
+          color: "#42A5F5" // blue
+        },
+        executive: {
+          name_en: "AECyberTV Executive", name_ar: "AECyberTV تنفيذي",
+          bullets_en: ["16,000+ Live Channels","24,000+ Movies (VOD)","14,000+ Series","2 devices • SD/HD/FHD/4K"],
+          bullets_ar: ["16,000+ قناة مباشرة","24,000+ فيلم (VOD)","14,000+ مسلسل","جهازان • SD/HD/FHD/4K"],
+          color: "#66BB6A" // green
+        },
+        premium: {
+          name_en: "AECyberTV Premium", name_ar: "AECyberTV بريميوم",
+          bullets_en: ["Full combo package","65,000+ Live Channels","180,000+ Movies (VOD)","10,000+ Series","Priority support"],
+          bullets_ar: ["باقة كاملة شاملة","65,000+ قناة مباشرة","180,000+ فيلم (VOD)","10,000+ مسلسل","دعم أولوية"],
+          color: "#EF5350" // red
+        }
+      };
+
       function isRTL(){
         return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
+      }
+
+      function pillStyle(hex){
+        return `background:${hex}; color:#000; border-radius:999px; padding:6px 10px; font-weight:700; display:inline-block;`;
+      }
+      function borderStyle(hex){
+        return `border:2px solid ${hex}33;`;
+      }
+
+      function pkgCard(key){
+        const rtl = isRTL();
+        const p = PKG[key];
+        const price = EARLY_BIRD_PRICES[key];
+        const bullets = (rtl ? p.bullets_ar : p.bullets_en)
+          .map(b => `<li>• ${b}</li>`).join("");
+        const name = rtl ? p.name_ar : p.name_en;
+        const btn = rtl ? "ادفع الآن" : "Pay Now";
+        const currency = "AED";
+
+        return `
+          <div class="card hoverable" style="${borderStyle(p.color)}">
+            <div class="stack">
+              <div style="${pillStyle(p.color)}">${name}</div>
+              <div class="price" style="margin-top:6px;">${currency} ${price}</div>
+              <ul class="note ${rtl?'ar':''}" ${rtl?'dir="rtl"':''}>${bullets}</ul>
+              <a class="btn primary" target="_blank" rel="noopener" href="${PAY[key]}">${btn}</a>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderEarlyBirdDetailColorful(){
+        // four colorful cards in a responsive grid
+        return `
+          <div class="grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
+            ${['kids','casual','executive','premium'].map(pkgCard).join('')}
+          </div>
+          <div class="note" style="margin-top:8px;">${isRTL() ? "الأسعار بالدرهم الإماراتي. جميع الباقات لمدة 12 شهر." : "Prices in AED. All plans are 12 months."}</div>
+        `;
+      }
+
+      function showTitleFor(id){
+        return id === "uae_national_day_2025" || id === "xmas_newyear_2025_2026";
       }
 
       function renderOffers(){
@@ -228,36 +303,35 @@
         const el = document.querySelector('#offers_grid');
         if(!el || !elSection) return;
 
-        // Current time according to the browser (offer windows have +04:00 offset embedded)
-        const now = new Date();
-
+        const now = new Date().getTime();
         const active = AEC_OFFERS.filter(o => {
           const s = new Date(o.start).getTime();
           const e = new Date(o.end).getTime();
-          const n = now.getTime();
-          return n >= s && n <= e;
+          return now >= s && now <= e;
         });
 
         if(active.length === 0){
-          // No active offers: hide the whole section
           elSection.style.display = 'none';
           return;
         }
 
-        // Otherwise, render cards
-        el.innerHTML = active.map(o => {
-          const title = isRTL() ? o.title_ar : o.title_en;
-          const validTxt = isRTL()
-            ? `ساري: ${o.start.slice(0,10)} → ${o.end.slice(0,10)} (بتوقيت الإمارات)`
-            : `Valid: ${o.start.slice(0,10)} → ${o.end.slice(0,10)} (UAE)`;
+        // If Early Bird is active, show colorful detailed cards with Pay links
+        const isEarlyBirdActive = active.some(o => o.id === "early_offer_nov2025");
+        if (isEarlyBirdActive){
+          el.innerHTML = renderEarlyBirdDetailColorful();
+          return;
+        }
 
+        // Otherwise, standard titled cards for the other offers (no dates)
+        el.innerHTML = active.map(o => {
+          const title = isRTL() ? (o.title_ar || "") : (o.title_en || "");
+          const wantTitle = showTitleFor(o.id);
           return `
             <div class="card hoverable">
               <div class="stack">
-                <h3>${title}</h3>
-                <div class="note">${validTxt}</div>
-                <a class="btn" href="${o.cta}" target="_blank" rel="noopener">
-                  ${isRTL() ? "احجز العرض" : "Grab Offer"}
+                ${wantTitle ? `<h3>${title}</h3>` : ``}
+                <a class="btn" href="#" onclick="alert('${isRTL() ? 'تفاصيل العرض ستُضاف هنا' : 'Offer details will be added here'}'); return false;">
+                  ${isRTL() ? "Grab Your Offer" : "Grab Your Offer"}
                 </a>
               </div>
             </div>
@@ -265,9 +339,7 @@
         }).join('');
       }
 
-      // Initial and on possible language toggle
       document.addEventListener('DOMContentLoaded', renderOffers);
-      // If your site has a setLang(lang) function, hook it to re-render offers after language change
       if (typeof window.setLang === 'function'){
         const _orig = window.setLang;
         window.setLang = function(lang){
@@ -276,6 +348,9 @@
         };
       }
     </script>
+
+
+
 
     
     <!-- Players -->
