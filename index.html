@@ -944,5 +944,54 @@ nav ul, .tabs ul {
 })();
 </script>
 
+<!-- ✅ Hidden Visitor Counter (Visible only with ?faisal123 in URL) -->
+<div id="secretCounter" style="display:none; text-align:center; margin-top:12px;">
+  <a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener">
+    <img 
+      src="https://hitwebcounter.com/counter/counter.php?page=21455855&style=0006&nbdigits=5&type=page&initCount=0"
+      title="Free Tools" 
+      alt="Free Tools"
+      border="0"
+    >
+  </a>
+</div>
+
+
+<script>
+  (function(){
+    function shouldShow(){
+      try {
+        var q = (window.location.search || "").toLowerCase();
+        var h = (window.location.hash || "").toLowerCase();
+        if (q.includes("faisal123")) return true;
+        if (q.includes("secret=faisal123")) return true;
+        if (h.includes("faisal123")) return true;
+        if (localStorage.getItem("faisal_show_counter") === "yes") return true;
+      } catch(e){}
+      return false;
+    }
+    function showCounter(){
+      var el = document.getElementById("secretCounter");
+      if (el) el.style.display = "block";
+    }
+    if (document.readyState === "loading"){
+      document.addEventListener("DOMContentLoaded", function(){ if (shouldShow()) showCounter(); });
+    } else {
+      if (shouldShow()) showCounter();
+    }
+
+    // Optional admin hotkey: Ctrl+Shift+V toggles visibility (your eyes only)
+    document.addEventListener("keydown", function(ev){
+      if (ev.ctrlKey && ev.shiftKey && (ev.key === "V" || ev.key === "v")){
+        var el = document.getElementById("secretCounter");
+        if (el){
+          el.style.display = (el.style.display === "none" || !el.style.display) ? "block" : "none";
+        }
+      }
+    });
+  })();
+</script>
+
+
 </body>
 </html>
