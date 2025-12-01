@@ -226,7 +226,7 @@ nav ul, .tabs ul { display: inline-flex !important; gap: 10px; }
     </noscript>
   </section>
 
-  <!-- Offers logic (with National Day prices + End-of-Year intact) -->
+  <!-- Offers logic (date-based only; National Day exact prices; Xmas/New Year intact) -->
   <script>
   // Offer windows (UAE time +04:00)
   const AEC_OFFERS = [
@@ -251,17 +251,16 @@ nav ul, .tabs ul { display: inline-flex !important; gap: 10px; }
     premium:   "https://buy.stripe.com/28EbJ26vXc12emA3EZ5kk0a"
   };
 
-  // Base prices (normal packages)
-  const BASE_PRICES = { kids: 70, casual: 75, executive: 200, premium: 250 };
-
-  // Prices used for your "current" (e.g., Xmas/New Year) set
+  // Base/other offer prices
   const PRICES = { kids: 50, casual: 50, executive: 150, premium: 200 };
 
-  // National Day prices = 54% OFF base (rounded down)
-  const DISCOUNT_NATIONAL_DAY = 0.54;
-  const PRICES_NATIONAL_DAY = Object.fromEntries(
-    Object.entries(BASE_PRICES).map(([k,v]) => [k, Math.floor(v * (1 - DISCOUNT_NATIONAL_DAY))])
-  );
+  // National Day prices (Dec 1–7) — exact values
+  const PRICES_NATIONAL_DAY = {
+    kids: 32,
+    casual: 34.5,
+    executive: 94,
+    premium: 115
+  };
 
   const SUMMARY = {
     kids:      { en: "Kids-safe channels • Cartoons & Educational • 1 device", ar: "قنوات للأطفال • كرتون وتعليمي • جهاز واحد" },
