@@ -8,15 +8,10 @@
   <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEbklEQVR4nO3VW2xURRgH8P83c3a3tBRFAgSjLWybAALGqBFfkBQjItQqEjcRBBWCC/VSgZaIDxJeQG5C5RaaEhNjEMGmyMVL5AECxnghRLkI7GExVEWghW6755w5e86ZzweF8LgmxBfm9zaTuXzfP5kMYBiGYRiGYRiGYRiGYRiGYRiGYRjG7YCKXcgfJQcBtAklogyK99IsewsvHW8h+cd6xJBEiDjiADy9jl7J7j9UtebeUGKxRWJwEEUnXCe/pu7iMvfmM79Orh4tBA9/wl7cVmwdB6pXvWgJa2zAURgjIQOtTxNx9HimqYVAfLhiRX8vYc3ozlRuSSEV3boAWqtnQNLHINgIWaBffCQwKkLvsSwkuYDejbgAPOzeu7nxuMz17osR7WfoI5ppfgjkdGQt71dxravm0LLwi+rmgZoLNQBNCoBNUsKpO9t4GgDaqt+7p5RKhwX5xNG6i2l3X8WK/pyIl8Zi8HSBKxNCjFaRXloixTs+ovOs8T6T9WptZsGv+6vXTgP0tCl20/Ri+hLFBgBFKTh0CHmah1AmcUk/RKldEZQowBGduGadQac4A537redS8LBimZ+YWbT2yUzT9726vMFn/imQ3Nj1+521O+/b2Nfh6AOXReCTnMBE80ItW3dUrXt2R3L1aObYNg16wS91tu2sbh7oxhK7CixavIBGTbYbj53Quc89Eh12eVn75LNNPyqWBxXz0wDgQkxyIdqLbauoAHj5iAHaFePhUIAeMRJ5Ynh6KgDoPIVQNAYRv40QSwCq9MJEX4fpyvX9qWw6p89VbvfZOuCCJimlH/EgLykh8x7TkefsRXM9Fg0BxMyA4rN9JJy/Ij6tIEcVIh7rQyZciPTUzMLDANAXdyU8lkLmu0v+aTrW7mlR0zp8ZbnSVMWwDt7SAODhMaHkHfBElS7QQu1Qt3ZELa++vwyOiOscfYkuPQ65xDicih2XpWFGQY7ZXLG5PwBsTW4Y0528/Ikm/Z3ScqACvay0OFAIY+TCCgGgJ6LQ1UQuk6VAtqDoFwVq8Vl0eCzyvizL3VySYnnj+SbODf7ZZaF1oXSuR9aFlN1wBUUqKgCdl9N1Dh3oCh4QTCNEjhYKPzYSF4NHkSdXuGIa/PhJePpkxOUvzc7Oz/iQbaFFe5qHbW1RkK2KqG2m3dCjII96LJ5iih92BYU+i7Hrhm7aGJDVrCC2K2F9mNd40OF+U1xt1fSKxDWPhe4Mohu15gG4TEHXv+MUUpEi+iakkiWexr5imy86ABFgfejwM7TB7qFlpwq4bO2CyxM9BVsUMAc+aqEwCz7Nkp7+CgDeyNavDCDqBaw9EHL6m+de+3T53RsG+Nynw4P8Np1N57pK9A9BKCdEQrYXNBY0nH/9swa7/lgoeJ4GHwxiMv1WNn2hwFzvZf/svV7PEHvIVVeLOe4Z17k+d9WLtxRANVf7DNrzXwIo+he4FZYO3VqXQMnzoVCr3s2mj/+fdxuGYRiGYRiGYRiGYRiGYRiGYRiGcXv7G1ZtJbs1T248AAAAAElFTkSuQmCC">
   <style>
     :root{
-      --primary:#B2248E; /* purple */
-      --accent:#FE8927;  /* orange */
-      --bg:#0b0b0c;
-      --card:#14161b;
-      --cardHover:#1a1d24;
-      --border:rgba(255,255,255,.10);
-      --borderHover:rgba(255,255,255,.22);
-      --text:#f6f7f9;
-      --muted:rgba(255,255,255,.75);
+      --primary:#B2248E; --accent:#FE8927; --bg:#0b0b0c;
+      --card:#14161b; --cardHover:#1a1d24;
+      --border:rgba(255,255,255,.10); --borderHover:rgba(255,255,255,.22);
+      --text:#f6f7f9; --muted:rgba(255,255,255,.75);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -57,35 +52,12 @@
     /* top-tabs-styles */
     html { scroll-behavior: smooth; }
     :is(#home,#packages,#players,#contact){ scroll-margin-top: 84px; }
-    .top-tabs{
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--border);
-    }
-    .top-tabs .tabs-inner{
-      max-width: 1100px; margin: 0 auto; padding: 8px 12px;
-      display: flex; justify-content: center; align-items: center;
-      gap: 20px; flex-wrap: wrap;
-    }
-    .top-tabs .tab{
-      color: #fff; text-decoration: none;
-      padding: 8px 14px; border-radius: 12px;
-      border: 1px solid transparent;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-    .top-tabs .tab:hover{
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.15);
-    }
-    .top-tabs .tab.active{
-      background: rgba(255,255,255,0.06);
-      border-color: var(--border);
-      color:#fff;
-    }
-    @media (max-width: 600px){
-      .top-tabs .tabs-inner{ padding: 8px; gap: 10px; }
-      .top-tabs .tab{ padding: 8px 10px; font-size: 14px; }
-    }
+    .top-tabs{ position: sticky; top: 0; z-index: 1000; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+    .top-tabs .tabs-inner{ max-width: 1100px; margin: 0 auto; padding: 8px 12px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .top-tabs .tab{ color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 12px; border: 1px solid transparent; transition: background 0.2s ease, border-color 0.2s ease; }
+    .top-tabs .tab:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+    .top-tabs .tab.active{ background: rgba(255,255,255,0.06); border-color: var(--border); color:#fff; }
+    @media (max-width: 600px){ .top-tabs .tabs-inner{ padding: 8px; gap: 10px; } .top-tabs .tab{ padding: 8px 10px; font-size: 14px; } }
     
 /* flash-offer override */
 .hidden{display:none !important;}
@@ -102,222 +74,69 @@
   text-align: center !important;
   padding: 8px 0 !important;
 }
-.logo img {
-  height: 100px !important;
-  width: auto !important;
-  object-fit: contain !important;
-}
-/* Ensure the nav below is centered and doesn't crowd the logo */
-nav, .navbar, .topnav, .tabs, .tabbar {
-  justify-content: center !important;
-  text-align: center !important;
-}
-nav ul, .tabs ul {
-  display: inline-flex !important;
-  gap: 10px;
-}
-/* Responsive: slightly reduce logo on very small screens */
-@media (max-width: 480px){
-  .logo img { height: 80px !important; }
-}
+.logo img { height: 100px !important; width: auto !important; object-fit: contain !important; }
+nav, .navbar, .topnav, .tabs, .tabbar { justify-content: center !important; text-align: center !important; }
+nav ul, .tabs ul { display: inline-flex !important; gap: 10px; }
+@media (max-width: 480px){ .logo img { height: 80px !important; } }
 
 /* offers-grid-layout: 1 mobile, 2 tablet, 4 desktop */
-#offers .grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-@media (min-width: 700px){
-  #offers .grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1100px){
-  #offers .grid { grid-template-columns: repeat(4, 1fr); }
-}
+#offers .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 700px){ #offers .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px){ #offers .grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* === Force 4-in-a-row Offers on desktop === */
-#offers .grid {
-  display: grid !important;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  width: 100% !important;
-  max-width: none !important;
-}
-@media (min-width: 700px){
-  #offers .grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-}
-@media (min-width: 1100px){
-  #offers .grid { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
-}
-/* Prevent nested wrappers from constraining width */
-#offers .section, #offers .container, #offers .stack, #offers .card {
-  max-width: none !important;
-}
+/* Force 4-in-a-row Offers on desktop */
+#offers .grid { display: grid !important; grid-template-columns: 1fr; gap: 16px; width: 100% !important; max-width: none !important; }
+@media (min-width: 700px){ #offers .grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; } }
+@media (min-width: 1100px){ #offers .grid { grid-template-columns: repeat(4, minmax(0,1fr)) !important; } }
+#offers .section, #offers .container, #offers .stack, #offers .card { max-width: none !important; }
 #offers { width: 100% !important; }
-/* Ensure cards fill their grid cell evenly */
 #offers .card { height: 100%; }
 
-/* === HARD OVERRIDE for desktop: Offers in ONE row (4 cards) === */
+/* HARD OVERRIDE for desktop: single row */
 @media (min-width: 1024px){
-  #offers .grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    gap: 16px !important;
-    width: 100% !important;
-    max-width: none !important;
-  }
-  #offers .card {
-    min-width: 0 !important;  /* prevent cards from forcing wrap */
-    width: 100% !important;
-  }
-  /* Neutralize any parent container limits for Offers only */
-  #offers, #offers .section, #offers .container, #offers .stack {
-    max-width: none !important;
-    width: 100% !important;
-  }
+  #offers .grid { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; grid-auto-flow: row !important; gap: 16px !important; width: 100% !important; max-width: none !important; }
+  #offers .card { min-width: 0 !important; width: 100% !important; }
+  #offers, #offers .section, #offers .container, #offers .stack { max-width: none !important; width: 100% !important; }
 }
 
-/* === FINAL OVERRIDE: single row via flex on desktop === */
+/* FINAL OVERRIDE: flex row */
 @media (min-width: 1024px){
-  #offers #offers_grid,
-  #offers .grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    gap: 16px !important;
-    width: 100% !important;
-    max-width: none !important;
-  }
-  #offers .grid > .card,
-  #offers #offers_grid > .card {
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-  }
+  #offers #offers_grid, #offers .grid { display: flex !important; flex-wrap: nowrap !important; gap: 16px !important; width: 100% !important; max-width: none !important; }
+  #offers .grid > .card, #offers #offers_grid > .card { flex: 1 1 0 !important; min-width: 0 !important; }
 }
 
-/* === Offer cards: make #offers_grid the grid container (no nested .grid) === */
-#offers #offers_grid.offers-grid-4 {
-  display: grid !important;
-  gap: 16px !important;
-  width: 100% !important;
-  max-width: none !important;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 700px){
-  #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-}
-@media (min-width: 1100px){
-  #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
-}
-/* Ensure cards don't force wrapping */
+/* Offer grid helper */
+#offers #offers_grid.offers-grid-4 { display: grid !important; gap: 16px !important; width: 100% !important; max-width: none !important; grid-template-columns: 1fr; }
+@media (min-width: 700px){ #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; } }
+@media (min-width: 1100px){ #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)) !important; } }
 #offers #offers_grid.offers-grid-4 > .card { min-width: 0 !important; height: 100%; }
 
-/* OFFERS rebuilt grid (single container): 1 mobile, 2 tablet, 4 desktop */
-#offers #offers_grid.offers-grid-4{
-  display: grid !important;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  width: 100% !important;
-  max-width: none !important;
-}
-@media (min-width: 700px){
-  #offers #offers_grid.offers-grid-4{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
-}
-@media (min-width: 1100px){
-  #offers #offers_grid.offers-grid-4{ grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
-}
+/* Players layout helpers (unchanged) */
+@media (min-width: 700px){ #players .grid > .card:nth-child(5){ grid-column: 1 / -1; justify-self: center; } }
+@media (min-width: 1100px){ #players .grid > .card:nth-child(5){ grid-column: 2 / 3; justify-self: center; } }
+@media (min-width: 700px){ #players .grid > .card:last-child:nth-child(odd){ grid-column: 1 / -1; justify-self: center; } }
+@media (min-width: 700px){ #players .grid > .card:nth-child(5){ grid-column: 1 / -1; width: 100%; justify-self: stretch; align-self: start; } }
 
-/* Keep original grid sizing; center the 5th player card only */
-@media (min-width: 700px){
-  #players .grid > .card:nth-child(5){
-    grid-column: 1 / -1;
-    justify-self: center;
-  }
-}
-@media (min-width: 1100px){
-  #players .grid > .card:nth-child(5){
-    grid-column: 2 / 3;
-    justify-self: center;
-  }
-}
-
-/* Center the last player card if the count is odd (e.g., 5 cards) */
-@media (min-width: 700px){
-  #players .grid > .card:last-child:nth-child(odd){
-    grid-column: 1 / -1;
-    justify-self: center;
-  }
-}
-
-/* 5th player: full-width rectangle below the two above (2x2 + 1 wide) */
-@media (min-width: 700px){
-  #players .grid > .card:nth-child(5){
-    grid-column: 1 / -1;
-    width: 100%;
-    justify-self: stretch;
-    align-self: start;
-  }
-}
-
-/* === Pay Warning Modal === */
-#payWarningBackdrop {
-  position: fixed; inset: 0; background: rgba(0,0,0,.65);
-  display: none; align-items: center; justify-content: center;
-  z-index: 1000;
-}
-#payWarningModal {
-  width: min(520px, 92vw);
-  background: #111217; color: #fff;
-  border: 1px solid #23242a; border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.6);
-  padding: 18px;
-}
+/* Pay Warning Modal */
+#payWarningBackdrop { position: fixed; inset: 0; background: rgba(0,0,0,.65); display: none; align-items: center; justify-content: center; z-index: 1000; }
+#payWarningModal { width: min(520px, 92vw); background: #111217; color: #fff; border: 1px solid #23242a; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.6); padding: 18px; }
 #payWarningModal h3 { margin: 0 0 8px; font-size: 18px; }
 #payWarningModal p  { margin: 0 0 16px; color: #a9acb3; line-height: 1.5; }
 #payWarningActions { display: flex; justify-content: flex-end; gap: 8px; }
-#payOkBtn {
-  background: var(--accent, #ff7b00); color: #000; font-weight: 700;
-  border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255,123,0,.4);
-}
+#payOkBtn { background: var(--accent, #ff7b00); color: #000; font-weight: 700; border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer; box-shadow: 0 6px 20px rgba(255,123,0,.4); }
 #payOkBtn:hover { filter: brightness(.95); }
 
-/* Gradient logo text for AECyberTV */
-.brand-badge {
-  background: linear-gradient(90deg, #FE8927 0%, #B2248E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  font-size: 1.6rem;
-  white-space: nowrap;
-}
+/* Gradient logo text */
+.brand-badge { background: linear-gradient(90deg, #FE8927 0%, #B2248E 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: 0.5px; font-size: 1.6rem; white-space: nowrap; }
 </style>
 
 <style>
-  /* Floating WhatsApp & Telegram (icons only, left side) */
-  .floating-chat{
-    position:fixed;
-    bottom:22px;
-    left:22px;
-    z-index:9999;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-  .floating-chat a{
-    display:block;
-    line-height:0;
-  }
-  .floating-chat img{
-    width:44px;
-    height:44px;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,.55));
-    transition: transform .2s ease;
-  }
+  /* Floating WhatsApp & Telegram (left-side icons) */
+  .floating-chat{ position:fixed; bottom:22px; left:22px; z-index:9999; display:flex; flex-direction:column; gap:12px; }
+  .floating-chat a{ display:block; line-height:0; }
+  .floating-chat img{ width:44px; height:44px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.55)); transition: transform .2s ease; }
   .floating-chat img:hover{ transform: scale(1.07); }
-  @media (max-width:480px){
-    .floating-chat img{ width:40px; height:40px; }
-  }
+  @media (max-width:480px){ .floating-chat img{ width:40px; height:40px; } }
 </style>
 
 </head>
@@ -335,9 +154,7 @@ nav ul, .tabs ul {
 
 <nav class="nav">
   <div class="container nav-inner"><span class="brand-badge">AECyberTV</span>
-    <div class="brand">
-      <div class="brand-badge"></div>
-    </div>
+    <div class="brand"><div class="brand-badge"></div></div>
     <div class="lang-switch">
       <button id="lang_en" class="active" type="button">EN</button>
       <button id="lang_ar" type="button">العربية</button>
@@ -351,18 +168,14 @@ nav ul, .tabs ul {
       <span class="badge" data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</span>
       <h1 class="brand-name" data-en="Official Players & Downloads" data-ar="التطبيقات الرسمية وروابط التحميل">Official Players & Downloads</h1>
       <p class="tagline note" data-en="All apps use Server Number 7765. 🔢" data-ar="جميع التطبيقات تستخدم رقم الخادم 7765. 🔢">All apps use Server Number 7765. 🔢</p>
-      <div class="cta-row">
-        <a class="btn primary" href="#players" data-en="Open Players" data-ar="فتح التطبيقات">🎮 Open Players</a>
-      </div>
+      <div class="cta-row"><a class="btn primary" href="#players" data-en="Open Players" data-ar="فتح التطبيقات">🎮 Open Players</a></div>
     </div>
 
     <div class="card hoverable">
       <span class="badge" data-en="🎁 Packages & Offers" data-ar="🎁 الباقات والعروض">🎁 Packages & Offers</span>
       <h1 class="brand-name" data-en="Choose your plan & see deals" data-ar="اختر باقتك وشاهد العروض">Choose your plan & see deals</h1>
       <p class="tagline note" data-en="12-month plans • AED pricing • Time-bound offers" data-ar="باقات لمدة 12 شهر • الأسعار بالدرهم • عروض مرتبطة بالوقت">12-month plans • AED pricing • Time-bound offers</p>
-      <div class="cta-row">
-        <a class="btn primary" href="#packages" data-en="Packages & Offers" data-ar="الباقات والعروض">📦 Packages & Offers</a>
-      </div>
+      <div class="cta-row"><a class="btn primary" href="#packages" data-en="Packages & Offers" data-ar="الباقات والعروض">📦 Packages & Offers</a></div>
     </div>
   </div>
 </header>
@@ -413,7 +226,7 @@ nav ul, .tabs ul {
     </noscript>
   </section>
 
-  <!-- Offers logic (FIXED) -->
+  <!-- Offers logic (with National Day prices + End-of-Year intact) -->
   <script>
   // Offer windows (UAE time +04:00)
   const AEC_OFFERS = [
@@ -438,8 +251,18 @@ nav ul, .tabs ul {
     premium:   "https://buy.stripe.com/28EbJ26vXc12emA3EZ5kk0a"
   };
 
-  // Prices & summaries
+  // Base prices (normal packages)
+  const BASE_PRICES = { kids: 70, casual: 75, executive: 200, premium: 250 };
+
+  // Prices used for your "current" (e.g., Xmas/New Year) set
   const PRICES = { kids: 50, casual: 50, executive: 150, premium: 200 };
+
+  // National Day prices = 54% OFF base (rounded down)
+  const DISCOUNT_NATIONAL_DAY = 0.54;
+  const PRICES_NATIONAL_DAY = Object.fromEntries(
+    Object.entries(BASE_PRICES).map(([k,v]) => [k, Math.floor(v * (1 - DISCOUNT_NATIONAL_DAY))])
+  );
+
   const SUMMARY = {
     kids:      { en: "Kids-safe channels • Cartoons & Educational • 1 device", ar: "قنوات للأطفال • كرتون وتعليمي • جهاز واحد" },
     casual:    { en: "10k+ Live • 70k+ Movies • 12k+ Series • 1 device",     ar: "10k+ مباشر • 70k+ أفلام • 12k+ مسلسلات • جهاز واحد" },
@@ -447,9 +270,7 @@ nav ul, .tabs ul {
     premium:   { en: "65k+ Live • 180k+ Movies • 10k+ Series • Priority support", ar: "65k+ مباشر • 180k+ أفلام • 10k+ مسلسلات • دعم أولوية" }
   };
 
-  function isRTL(){
-    return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl';
-  }
+  function isRTL(){ return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl'; }
   function nameFor(key){
     const en = { kids:"AECyberTV Kids", casual:"AECyberTV Casual", executive:"AECyberTV Executive", premium:"AECyberTV Premium" };
     const ar = { kids:"AECyberTV أطفال", casual:"AECyberTV عادي", executive:"AECyberTV تنفيذي", premium:"AECyberTV بريميوم" };
@@ -487,7 +308,7 @@ nav ul, .tabs ul {
 
     if(active.length === 0){ elSection.style.display = 'none'; return; }
 
-    // Nov window (use PAY_CURRENT)
+    // Nov window (uses PAY_CURRENT + PRICES)
     if (active.some(o => o.id === "current_offer_nov2025")){
       const cards = ['kids','casual','executive','premium'].map(k => card(k, PRICES[k], PAY_CURRENT[k])).join('');
       el.classList.add("offers-grid-4");
@@ -495,15 +316,15 @@ nav ul, .tabs ul {
       return;
     }
 
-    // National Day window (use national links)
+    // National Day window (uses PAY_NATIONAL_DAY + PRICES_NATIONAL_DAY)
     if (active.some(o => o.id === "uae_national_day_2025")){
-      const cards = ['kids','casual','executive','premium'].map(k => card(k, PRICES[k], PAY_NATIONAL_DAY[k])).join('');
+      const cards = ['kids','casual','executive','premium'].map(k => card(k, PRICES_NATIONAL_DAY[k], PAY_NATIONAL_DAY[k])).join('');
       el.classList.add("offers-grid-4");
       el.innerHTML = cards;
       return;
     }
 
-    // Xmas/New Year window (use PAY_CURRENT)
+    // Xmas/New Year window (uses PAY_CURRENT + PRICES)
     if (active.some(o => o.id === "xmas_newyear_2025_2026")){
       const cards = ['kids','casual','executive','premium'].map(k => card(k, PRICES[k], PAY_CURRENT[k])).join('');
       el.classList.add("offers-grid-4");
@@ -515,10 +336,7 @@ nav ul, .tabs ul {
   document.addEventListener('DOMContentLoaded', renderOffers);
   if (typeof window.setLang === 'function'){
     const _orig = window.setLang;
-    window.setLang = function(lang){
-      _orig(lang);
-      renderOffers();
-    };
+    window.setLang = function(lang){ _orig(lang); renderOffers(); };
   }
   </script>
 
@@ -584,15 +402,11 @@ nav ul, .tabs ul {
     <div class="grid">
       <a class="card hoverable" href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener" style="display:block">
         <h3 data-en="💚 WhatsApp" data-ar="💚 واتساب">💚 WhatsApp</h3>
-        <div class="stack">
-          <div data-en="Tap to start a chat on WhatsApp. 💬" data-ar="اضغط لبدء محادثة على واتساب. 💬">Tap to start a chat on WhatsApp. 💬</div>
-        </div>
+        <div class="stack"><div data-en="Tap to start a chat on WhatsApp. 💬" data-ar="اضغط لبدء محادثة على واتساب. 💬">Tap to start a chat on WhatsApp. 💬</div></div>
       </a>
       <a class="card hoverable" href="https://t.me/AECYBERTVBOT" target="_blank" rel="noopener" style="display:block">
         <h3 data-en="🤖 Telegram Sales Bot" data-ar="🤖 بوت المبيعات على تيليجرام">🤖 Telegram Sales Bot</h3>
-        <div class="stack">
-          <div data-en="Open @AECYBERTVBOT for subscriptions & renewals. 🚀" data-ar="افتح @AECYBERTVBOT للاشتراكات والتجديد. 🚀">Open @AECYBERTVBOT for subscriptions & renewals. 🚀</div>
-        </div>
+        <div class="stack"><div data-en="Open @AECYBERTVBOT for subscriptions & renewals. 🚀" data-ar="افتح @AECYBERTVBOT للاشتراكات والتجديد. 🚀">Open @AECYBERTVBOT for subscriptions & renewals. 🚀</div></div>
       </a>
     </div>
   </section>
@@ -608,8 +422,7 @@ nav ul, .tabs ul {
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
     document.querySelectorAll('[data-en]').forEach(el=>{
-      const en = el.getAttribute('data-en');
-      const ar = el.getAttribute('data-ar');
+      const en = el.getAttribute('data-en'); const ar = el.getAttribute('data-ar');
       el.textContent = lang === 'ar' ? (ar || en) : (en || ar || el.textContent);
     });
     document.querySelector('#lang_en').classList.toggle('active', lang==='en');
@@ -624,72 +437,36 @@ nav ul, .tabs ul {
 <script>
   (function(){
     const tabs = document.querySelectorAll('#top-tabs .tab');
-    const sections = {
-      home: document.getElementById('home'),
-      packages: document.getElementById('packages'),
-      players: document.getElementById('players'),
-      contact: document.getElementById('contact')
-    };
-    function setActive(id){
-      tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
-    }
+    const sections = { home: document.getElementById('home'), packages: document.getElementById('packages'), players: document.getElementById('players'), contact: document.getElementById('contact') };
+    function setActive(id){ tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id)); }
     function onScroll(){
-      const offset = 120; // keep under sticky bar
-      const y = window.scrollY + offset;
-      let current = 'home';
-      for (const [id, el] of Object.entries(sections)){
-        if (!el) continue;
-        const top = el.getBoundingClientRect().top + window.scrollY;
-        if (y >= top) current = id;
-      }
+      const offset = 120; const y = window.scrollY + offset; let current = 'home';
+      for (const [id, el] of Object.entries(sections)){ if (!el) continue; const top = el.getBoundingClientRect().top + window.scrollY; if (y >= top) current = id; }
       setActive(current);
     }
     tabs.forEach(t => {
-      t.addEventListener('click', (e) => {
-        const target = t.getAttribute('href');
-        if (target === '#home'){
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          history.replaceState(null, '', '#home');
-          setActive('home');
-        }
-      });
+      t.addEventListener('click', (e) => { const target = t.getAttribute('href'); if (target === '#home'){ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', '#home'); setActive('home'); } });
     });
     window.addEventListener('scroll', onScroll, {passive:true});
     window.addEventListener('hashchange', () => setActive(location.hash.replace('#','') || 'home'));
-    setActive(location.hash.replace('#','') || 'home');
-    onScroll();
+    setActive(location.hash.replace('#','') || 'home'); onScroll();
   })();
 </script>
 
-<!-- 1-hour Flash Offer Override (FIXED end-branch) -->
+<!-- 1-hour Flash Offer Override (fixed end-branch) -->
 <script>
   (function(){
     const OVERRIDE_START = new Date("2025-11-07T12:44:22+04:00").getTime();
     const OVERRIDE_END   = new Date("2025-11-07T13:44:22+04:00").getTime();
-
     const secPackages = document.getElementById('packages');
     const secOffers   = document.getElementById('offers');
-
     function applyOverride(){
       if(!secPackages || !secOffers) return;
-
-      const now = Date.now();
-      const within = now >= OVERRIDE_START && now <= OVERRIDE_END;
-
-      if (within) {
-        secPackages.classList.add('hidden');
-        secOffers.classList.remove('hidden');
-      } else if (now > OVERRIDE_END) {
-        // FIX: do not keep offers hidden after the flash ends
-        secOffers.classList.remove('hidden');
-        secPackages.classList.remove('hidden');
-      } else {
-        secOffers.classList.remove('hidden');
-        secPackages.classList.remove('hidden');
-      }
+      const now = Date.now(); const within = now >= OVERRIDE_START && now <= OVERRIDE_END;
+      if (within) { secPackages.classList.add('hidden'); secOffers.classList.remove('hidden'); }
+      else if (now > OVERRIDE_END) { secOffers.classList.remove('hidden'); secPackages.classList.remove('hidden'); }
+      else { secOffers.classList.remove('hidden'); secPackages.classList.remove('hidden'); }
     }
-
     document.addEventListener('DOMContentLoaded', applyOverride);
     setInterval(applyOverride, 30000);
   })();
@@ -698,30 +475,14 @@ nav ul, .tabs ul {
 <!-- Flash navigation routing: Packages tab -> Offers when flash is active -->
 <script>
   (function(){
-    const OVERRIDE_START = (function(){
-      try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_START\s*=\s*new Date\("([^"]+)/)[1]).getTime(); }
-      catch(e){ return Date.now(); }
-    })();
-    const OVERRIDE_END = (function(){
-      try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_END\s*=\s*new Date\("([^"]+)/)[1]).getTime(); }
-      catch(e){ return Date.now() + 3600*1000; }
-    })();
-
+    const OVERRIDE_START = (function(){ try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_START\s*=\s*new Date\("([^"]+)/)[1]).getTime(); } catch(e){ return Date.now(); } })();
+    const OVERRIDE_END   = (function(){ try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_END\s*=\s*new Date\("([^"]+)/)[1]).getTime(); } catch(e){ return Date.now() + 3600*1000; } })();
     function flashActive(){ const now = Date.now(); return now >= OVERRIDE_START && now <= OVERRIDE_END; }
-
     function wireNavHijack(){
-      var pkgLink = document.querySelector('a[href="#packages"]');
-      var offersEl = document.getElementById('offers');
+      var pkgLink = document.querySelector('a[href="#packages"]'); var offersEl = document.getElementById('offers');
       if(!pkgLink || !offersEl) return;
-      pkgLink.addEventListener('click', function(e){
-        if(flashActive()){
-          e.preventDefault();
-          offersEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          try { history.replaceState(null, '', '#offers'); } catch(_){}
-        }
-      }, { passive:false });
+      pkgLink.addEventListener('click', function(e){ if(flashActive()){ e.preventDefault(); offersEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); try { history.replaceState(null, '', '#offers'); } catch(_){}} }, { passive:false });
     }
-
     document.addEventListener('DOMContentLoaded', wireNavHijack);
   })();
 </script>
@@ -754,9 +515,7 @@ nav ul, .tabs ul {
   <div id="payWarningModal" class="card">
     <h3 id="payWarnTitle">⚠️ Before you pay</h3>
     <p>Please make sure to fill in your <b>name</b>, <b>email</b>, and <b>phone number</b> in the payment form so we can send your subscription.</p>
-    <div id="payWarningActions">
-      <button id="payOkBtn" type="button">OK</button>
-    </div>
+    <div id="payWarningActions"><button id="payOkBtn" type="button">OK</button></div>
   </div>
 </div>
 
@@ -766,20 +525,9 @@ nav ul, .tabs ul {
   const okBtn = document.getElementById('payOkBtn');
   let pendingHref = null;
 
-  function showWarning(href){
-    pendingHref = href;
-    if (backdrop) backdrop.style.display = 'flex';
-  }
-  function hideWarning(){
-    if (backdrop) backdrop.style.display = 'none';
-  }
-  function proceed(){
-    if (pendingHref){
-      window.open(pendingHref, '_blank', 'noopener');
-      pendingHref = null;
-    }
-    hideWarning();
-  }
+  function showWarning(href){ pendingHref = href; if (backdrop) backdrop.style.display = 'flex'; }
+  function hideWarning(){ if (backdrop) backdrop.style.display = 'none'; }
+  function proceed(){ if (pendingHref){ window.open(pendingHref, '_blank', 'noopener'); pendingHref = null; } hideWarning(); }
 
   function wirePayButtons(){
     const payBtns = Array.from(document.querySelectorAll('#packages a.btn.primary, #offers a.btn.primary'))
@@ -795,22 +543,14 @@ nav ul, .tabs ul {
 
   document.addEventListener('DOMContentLoaded', wirePayButtons);
   if (okBtn) okBtn.addEventListener('click', proceed);
-
-  document.addEventListener('keydown', function(ev){
-    if (ev.key === 'Escape') { hideWarning(); }
-  });
+  document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') { hideWarning(); } });
 })();
 </script>
 
-<!-- ✅ Hidden Visitor Counter (Visible only with ?faisal123 in URL) -->
+<!-- Hidden Visitor Counter (visible only with ?faisal123) -->
 <div id="secretCounter" style="display:none; text-align:center; margin-top:12px;">
   <a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener">
-    <img 
-      src="https://hitwebcounter.com/counter/counter.php?page=21455855&style=0006&nbdigits=5&type=page&initCount=0"
-      title="Free Tools" 
-      alt="Free Tools"
-      border="0"
-    >
+    <img src="https://hitwebcounter.com/counter/counter.php?page=21455855&style=0006&nbdigits=5&type=page&initCount=0" title="Free Tools" alt="Free Tools" border="0">
   </a>
 </div>
 
@@ -827,29 +567,19 @@ nav ul, .tabs ul {
       } catch(e){}
       return false;
     }
-    function showCounter(){
-      var el = document.getElementById("secretCounter");
-      if (el) el.style.display = "block";
-    }
-    if (document.readyState === "loading"){
-      document.addEventListener("DOMContentLoaded", function(){ if (shouldShow()) showCounter(); });
-    } else {
-      if (shouldShow()) showCounter();
-    }
-
-    // Admin hotkey: Ctrl+Shift+V toggles visibility
+    function showCounter(){ var el = document.getElementById("secretCounter"); if (el) el.style.display = "block"; }
+    if (document.readyState === "loading"){ document.addEventListener("DOMContentLoaded", function(){ if (shouldShow()) showCounter(); }); }
+    else { if (shouldShow()) showCounter(); }
     document.addEventListener("keydown", function(ev){
       if (ev.ctrlKey && ev.shiftKey && (ev.key === "V" || ev.key === "v")){
         var el = document.getElementById("secretCounter");
-        if (el){
-          el.style.display = (el.style.display === "none" || !el.style.display) ? "block" : "none";
-        }
+        if (el){ el.style.display = (el.style.display === "none" || !el.style.display) ? "block" : "none"; }
       }
     });
   })();
 </script>
 
-<!-- Floating WhatsApp & Telegram (icons only) -->
+<!-- Floating WhatsApp & Telegram -->
 <div class="floating-chat" role="navigation" aria-label="Quick chat links">
   <a href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener" aria-label="WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
