@@ -3,605 +3,130 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AECyberTV — Players & Contact</title>
-  <meta name="description" content="AECyberTV — official players and contact links."/>
+  <title>AECyberTV — Under Improvement</title>
+  <meta name="description" content="AECyberTV is temporarily under improvement. We'll be back soon." />
+
+  <!-- Optional: keep your favicon -->
   <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEbklEQVR4nO3VW2xURRgH8P83c3a3tBRFAgSjLWybAALGqBFfkBQjItQqEjcRBBWCC/VSgZaIDxJeQG5C5RaaEhNjEMGmyMVL5AECxnghRLkI7GExVEWghW6755w5e86ZzweF8LgmxBfm9zaTuXzfP5kMYBiGYRiGYRiGYRiGYRiGYRiGYRjG7YCKXcgfJQcBtAklogyK99IsewsvHW8h+cd6xJBEiDjiADy9jl7J7j9UtebeUGKxRWJwEEUnXCe/pu7iMvfmM79Orh4tBA9/wl7cVmwdB6pXvWgJa2zAURgjIQOtTxNx9HimqYVAfLhiRX8vYc3ozlRuSSEV3boAWqtnQNLHINgIWaBffCQwKkLvsSwkuYDejbgAPOzeu7nxuMz17osR7WfoI5ppfgjkdGQt71dxravm0LLwi+rmgZoLNQBNCoBNUsKpO9t4GgDaqt+7p5RKhwX5xNG6i2l3X8WK/pyIl8Zi8HSBKxNCjFaRXloixTs+ovOs8T6T9WptZsGv+6vXTgP0tCl20/Ri+hLFBgBFKTh0CHmah1AmcUk/RKldEZQowBGduGadQac4A537redS8LBimZ+YWbT2yUzT9726vMFn/imQ3Nj1+521O+/b2Nfh6AOXReCTnMBE80ItW3dUrXt2R3L1aObYNg16wS91tu2sbh7oxhK7CixavIBGTbYbj53Quc89Eh12eVn75LNNPyqWBxXz0wDgQkxyIdqLbauoAHj5iAHaFePhUIAeMRJ5Ynh6KgDoPIVQNAYRv40QSwCq9MJEX4fpyvX9qWw6p89VbvfZOuCCJimlH/EgLykh8x7TkefsRXM9Fg0BxMyA4rN9JJy/Ij6tIEcVIh7rQyZciPTUzMLDANAXdyU8lkLmu0v+aTrW7mlR0zp8ZbnSVMWwDt7SAODhMaHkHfBElS7QQu1Qt3ZELa++vwyOiOscfYkuPQ65xDicih2XpWFGQY7ZXLG5PwBsTW4Y0528/Ikm/Z3ScqACvay0OFAIY+TCCgGgJ6LQ1UQuk6VAtqDoFwVq8Vl0eCzyvizL3VySYnnj+SbODf7ZZaF1oXSuR9aFlN1wBUUqKgCdl9N1Dh3oCh4QTCNEjhYKPzYSF4NHkSdXuGIa/PhJePpkxOUvzc7Oz/iQbaFFe5qHbW1RkK2KqG2m3dCjII96LJ5iih92BYU+i7Hrhm7aGJDVrCC2K2F9mNd40OF+U1xt1fSKxDWPhe4Mohu15gG4TEHXv+MUUpEi+iakkiWexr5imy86ABFgfejwM7TB7qFlpwq4bO2CyxM9BVsUMAc+aqEwCz7Nkp7+CgDeyNavDCDqBaw9EHL6m+de+3T53RsG+Nynw4P8Np1N57pK9A9BKCdEQrYXNBY0nH/9swa7/lgoeJ4GHwxiMv1WNn2hwFzvZf/svV7PEHvIVVeLOe4Z17k+d9WLtxRANVf7DNrzXwIo+he4FZYO3VqXQMnzoVCr3s2mj/+fdxuGYRiGYRiGYRiGYRiGYRiGYRiGcXv7G1ZtJbs1T248AAAAAElFTkSuQmCC">
+
   <style>
     :root{
-      --primary:#B2248E; --accent:#FE8927; --bg:#0b0b0c;
-      --card:#14161b; --cardHover:#1a1d24;
-      --border:rgba(255,255,255,.10); --borderHover:rgba(255,255,255,.22);
+      --primary:#B2248E; --accent:#FE8927;
+      --bg:#0b0b0c; --card:#14161b;
+      --border:rgba(255,255,255,.12);
       --text:#f6f7f9; --muted:rgba(255,255,255,.75);
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.65}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1100px,92vw);margin:0 auto;padding:24px}
-    .nav{position:sticky;top:0;z-index:10;background:rgba(11,11,12,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand img{height:28px;width:auto;border-radius:6px}
-    .brand-badge{display:inline-block;font-weight:900;letter-spacing:.3px}
-    .lang-switch{display:flex;gap:8px}
-    .lang-switch button{background:#16171a;border:1px solid rgba(255,255,255,.08);color:#EDEEF0;padding:8px 12px;border-radius:10px;cursor:pointer}
-    .lang-switch button.active{background:var(--primary);color:#0b0b0c;border-color:var(--primary)}
-    .hero{padding:42px 0 10px;display:grid;grid-template-columns:1fr;gap:20px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease}
-    .card.hoverable:hover{background:var(--cardHover);border-color:var(--borderHover);transform:translateY(-3px) scale(1.01);box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 0 2px color-mix(in hsl, var(--primary) 60%, transparent)}
-    .badge{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--primary));padding:6px 10px;border-radius:999px;font-size:12px;color:#0b0b0c;font-weight:800}
-    .section{padding:20px 0}
-    .section h2{margin:0 0 14px;font-size:clamp(22px,3vw,30px)}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .stack{display:flex;flex-direction:column;gap:8px}
-    .note{color:var(--muted);font-size:14px}
-    .kbd{background:#1b1d22;border:1px solid rgba(255,255,255,.12);padding:2px 6px;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-    .hero h1{margin:.2rem 0 .4rem;font-size:clamp(26px,4vw,40px)}
-    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:#121316;color:#EDEEF0}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--primary));color:#0b0b0c;border-color:transparent;font-weight:800}
-    .card a:hover{text-decoration:underline;opacity:.95}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    [dir="rtl"] .nav-inner{flex-direction:row-reverse}
-    [dir="rtl"] .grid,[dir="rtl"] .hero{direction:rtl}
-  
-    /* hero-grid-2 */
-    .hero-grid-2{display:grid;grid-template-columns:1fr;gap:14px}
-    @media (min-width:900px){.hero-grid-2{grid-template-columns:1fr 1fr}}
-    
-    /* top-tabs-styles */
-    html { scroll-behavior: smooth; }
-    :is(#home,#packages,#players,#contact){ scroll-margin-top: 84px; }
-    .top-tabs{ position: sticky; top: 0; z-index: 1000; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
-    .top-tabs .tabs-inner{ max-width: 1100px; margin: 0 auto; padding: 8px 12px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .top-tabs .tab{ color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 12px; border: 1px solid transparent; transition: background 0.2s ease, border-color 0.2s ease; }
-    .top-tabs .tab:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
-    .top-tabs .tab.active{ background: rgba(255,255,255,0.06); border-color: var(--border); color:#fff; }
-    @media (max-width: 600px){ .top-tabs .tabs-inner{ padding: 8px; gap: 10px; } .top-tabs .tab{ padding: 8px 10px; font-size: 14px; } }
-    
-/* flash-offer override */
-.hidden{display:none !important;}
-
-/* enlarge AE Cyber TV logo */
-.logo img { height: 70px !important; width: auto !important; }
-
-/* === Centered, medium-big logo === */
-.logo, header .logo, .site-header .logo, nav .logo {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin: 0 auto !important;
-  text-align: center !important;
-  padding: 8px 0 !important;
-}
-.logo img { height: 100px !important; width: auto !important; object-fit: contain !important; }
-nav, .navbar, .topnav, .tabs, .tabbar { justify-content: center !important; text-align: center !important; }
-nav ul, .tabs ul { display: inline-flex !important; gap: 10px; }
-@media (max-width: 480px){ .logo img { height: 80px !important; } }
-
-/* offers-grid-layout: 1 mobile, 2 tablet, 4 desktop */
-#offers .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-@media (min-width: 700px){ #offers .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px){ #offers .grid { grid-template-columns: repeat(4, 1fr); } }
-
-/* Force 4-in-a-row Offers on desktop */
-#offers .grid { display: grid !important; grid-template-columns: 1fr; gap: 16px; width: 100% !important; max-width: none !important; }
-@media (min-width: 700px){ #offers .grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; } }
-@media (min-width: 1100px){ #offers .grid { grid-template-columns: repeat(4, minmax(0,1fr)) !important; } }
-#offers .section, #offers .container, #offers .stack, #offers .card { max-width: none !important; }
-#offers { width: 100% !important; }
-#offers .card { height: 100%; }
-
-/* HARD OVERRIDE for desktop: single row */
-@media (min-width: 1024px){
-  #offers .grid { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; grid-auto-flow: row !important; gap: 16px !important; width: 100% !important; max-width: none !important; }
-  #offers .card { min-width: 0 !important; width: 100% !important; }
-  #offers, #offers .section, #offers .container, #offers .stack { max-width: none !important; width: 100% !important; }
-}
-
-/* FINAL OVERRIDE: flex row */
-@media (min-width: 1024px){
-  #offers #offers_grid, #offers .grid { display: flex !important; flex-wrap: nowrap !important; gap: 16px !important; width: 100% !important; max-width: none !important; }
-  #offers .grid > .card, #offers #offers_grid > .card { flex: 1 1 0 !important; min-width: 0 !important; }
-}
-
-/* Offer grid helper */
-#offers #offers_grid.offers-grid-4 { display: grid !important; gap: 16px !important; width: 100% !important; max-width: none !important; grid-template-columns: 1fr; }
-@media (min-width: 700px){ #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; } }
-@media (min-width: 1100px){ #offers #offers_grid.offers-grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)) !important; } }
-#offers #offers_grid.offers-grid-4 > .card { min-width: 0 !important; height: 100%; }
-
-/* Players layout helpers (unchanged) */
-@media (min-width: 700px){ #players .grid > .card:nth-child(5){ grid-column: 1 / -1; justify-self: center; } }
-@media (min-width: 1100px){ #players .grid > .card:nth-child(5){ grid-column: 2 / 3; justify-self: center; } }
-@media (min-width: 700px){ #players .grid > .card:last-child:nth-child(odd){ grid-column: 1 / -1; justify-self: center; } }
-@media (min-width: 700px){ #players .grid > .card:nth-child(5){ grid-column: 1 / -1; width: 100%; justify-self: stretch; align-self: start; } }
-
-/* Pay Warning Modal */
-#payWarningBackdrop { position: fixed; inset: 0; background: rgba(0,0,0,.65); display: none; align-items: center; justify-content: center; z-index: 1000; }
-#payWarningModal { width: min(520px, 92vw); background: #111217; color: #fff; border: 1px solid #23242a; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,.6); padding: 18px; }
-#payWarningModal h3 { margin: 0 0 8px; font-size: 18px; }
-#payWarningModal p  { margin: 0 0 16px; color: #a9acb3; line-height: 1.5; }
-#payWarningActions { display: flex; justify-content: flex-end; gap: 8px; }
-#payOkBtn { background: var(--accent, #ff7b00); color: #000; font-weight: 700; border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer; box-shadow: 0 6px 20px rgba(255,123,0,.4); }
-#payOkBtn:hover { filter: brightness(.95); }
-
-/* Gradient logo text */
-.brand-badge { background: linear-gradient(90deg, #FE8927 0%, #B2248E 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; letter-spacing: 0.5px; font-size: 1.6rem; white-space: nowrap; }
-</style>
-
-<style>
-  /* Floating WhatsApp & Telegram (left-side icons) */
-  .floating-chat{ position:fixed; bottom:22px; left:22px; z-index:9999; display:flex; flex-direction:column; gap:12px; }
-  .floating-chat a{ display:block; line-height:0; }
-  .floating-chat img{ width:44px; height:44px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.55)); transition: transform .2s ease; }
-  .floating-chat img:hover{ transform: scale(1.07); }
-  @media (max-width:480px){ .floating-chat img{ width:40px; height:40px; } }
-</style>
-
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background:radial-gradient(1000px 600px at 20% 10%, rgba(178,36,142,.25), transparent 60%),
+                 radial-gradient(900px 500px at 80% 30%, rgba(254,137,39,.18), transparent 55%),
+                 var(--bg);
+      color:var(--text); min-height:100vh; display:flex; align-items:center;
+    }
+    .wrap{width:min(980px,92vw); margin:0 auto; padding:24px}
+    .card{
+      background:rgba(20,22,27,.9);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+    .top{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .brand{
+      font-weight:900; letter-spacing:.4px; font-size:28px;
+      background:linear-gradient(90deg,var(--accent),var(--primary));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .lang{display:flex; gap:8px}
+    .lang button{
+      background:#16171a; border:1px solid rgba(255,255,255,.10);
+      color:#EDEEF0; padding:8px 12px; border-radius:10px; cursor:pointer;
+    }
+    .lang button.active{background:var(--primary); color:#0b0b0c; border-color:var(--primary); font-weight:800}
+    h1{margin:18px 0 8px; font-size:clamp(26px,4vw,42px)}
+    p{margin:0 0 14px; color:var(--muted); line-height:1.7}
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:#121316; color:#EDEEF0; text-decoration:none;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--accent),var(--primary));
+      color:#0b0b0c; border-color:transparent; font-weight:900;
+    }
+    small{display:block; margin-top:14px; color:rgba(255,255,255,.55)}
+    /* Floating chat icons (optional) */
+    .floating-chat{ position:fixed; bottom:22px; left:22px; z-index:9999; display:flex; flex-direction:column; gap:12px; }
+    .floating-chat a{ display:block; line-height:0; }
+    .floating-chat img{ width:44px; height:44px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.55)); transition: transform .2s ease; }
+    .floating-chat img:hover{ transform: scale(1.07); }
+    @media (max-width:480px){ .floating-chat img{ width:40px; height:40px; } }
+  </style>
 </head>
+
 <body>
-<div id="home"></div>
+  <main class="wrap">
+    <section class="card">
+      <div class="top">
+        <div class="brand">AECyberTV</div>
+        <div class="lang">
+          <button id="lang_en" class="active" type="button">EN</button>
+          <button id="lang_ar" type="button">العربية</button>
+        </div>
+      </div>
 
-<nav id="top-tabs" class="top-tabs" role="navigation" aria-label="Primary">
-  <div class="tabs-inner">
-    <a href="#home" class="tab" data-en="Home" data-ar="الرئيسية">🏠 Home</a>
-    <a href="#packages" class="tab" data-en="Packages" data-ar="الباقات">🎁 Packages</a>
-    <a href="#players" class="tab" data-en="Players" data-ar="التطبيقات">🎬 Players</a>
-    <a href="#contact" class="tab" data-en="Contact" data-ar="تواصل">📞 Contact</a>
+      <h1 data-en="We’re improving the website 🛠️" data-ar="الموقع تحت التطوير 🛠️">We’re improving the website 🛠️</h1>
+      <p data-en="AECyberTV website is temporarily paused for updates and improvements. We’ll be back soon."
+         data-ar="موقع AECyberTV متوقف مؤقتًا للتحديثات والتحسينات. بنرجع قريب إن شاء الله.">
+         AECyberTV website is temporarily paused for updates and improvements. We’ll be back soon.
+      </p>
+
+      <p data-en="For subscriptions and support, contact us here:"
+         data-ar="للاشتراكات والدعم، تواصل معنا هنا:">
+         For subscriptions and support, contact us here:
+      </p>
+
+      <div class="btns">
+        <a class="btn primary" href="https://t.me/AECYBERTVBOT" target="_blank" rel="noopener"
+           data-en="🤖 Telegram Bot" data-ar="🤖 بوت تيليجرام">🤖 Telegram Bot</a>
+
+        <a class="btn" href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener"
+           data-en="💚 WhatsApp" data-ar="💚 واتساب">💚 WhatsApp</a>
+      </div>
+
+      <small data-en="© AECyberTV • All rights reserved."
+             data-ar="© AECyberTV • جميع الحقوق محفوظة.">© AECyberTV • All rights reserved.</small>
+    </section>
+  </main>
+
+  <!-- Optional floating icons -->
+  <div class="floating-chat" role="navigation" aria-label="Quick chat links">
+    <a href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <a href="https://t.me/AECYBERTVBOT" target="_blank" rel="noopener" aria-label="Telegram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+    </a>
   </div>
-</nav>
 
-<nav class="nav">
-  <div class="container nav-inner"><span class="brand-badge">AECyberTV</span>
-    <div class="brand"><div class="brand-badge"></div></div>
-    <div class="lang-switch">
-      <button id="lang_en" class="active" type="button">EN</button>
-      <button id="lang_ar" type="button">العربية</button>
-    </div>
-  </div>
-</nav>
-
-<header class="hero container">
-  <div class="hero-grid-2">
-    <div class="card hoverable">
-      <span class="badge" data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</span>
-      <h1 class="brand-name" data-en="Official Players & Downloads" data-ar="التطبيقات الرسمية وروابط التحميل">Official Players & Downloads</h1>
-      <p class="tagline note" data-en="All apps use Server Number 7765. 🔢" data-ar="جميع التطبيقات تستخدم رقم الخادم 7765. 🔢">All apps use Server Number 7765. 🔢</p>
-      <div class="cta-row"><a class="btn primary" href="#players" data-en="Open Players" data-ar="فتح التطبيقات">🎮 Open Players</a></div>
-    </div>
-
-    <div class="card hoverable">
-      <span class="badge" data-en="🎁 Packages & Offers" data-ar="🎁 الباقات والعروض">🎁 Packages & Offers</span>
-      <h1 class="brand-name" data-en="Choose your plan & see deals" data-ar="اختر باقتك وشاهد العروض">Choose your plan & see deals</h1>
-      <p class="tagline note" data-en="12-month plans • AED pricing • Time-bound offers" data-ar="باقات لمدة 12 شهر • الأسعار بالدرهم • عروض مرتبطة بالوقت">12-month plans • AED pricing • Time-bound offers</p>
-      <div class="cta-row"><a class="btn primary" href="#packages" data-en="Packages & Offers" data-ar="الباقات والعروض">📦 Packages & Offers</a></div>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-  <!-- Packages -->
-  <section id="packages" class="section">
-    <h2 data-en="🎁 Packages" data-ar="🎁 الباقات">🎁 Packages</h2>
-    <div class="grid">
-      <div class="card hoverable">
-        <h3 data-en="AECyberTV Kids — AED 70" data-ar="AECyberTV أطفال — 70 درهم">AECyberTV Kids — AED 70</h3>
-        <div class="stack">
-          <div class="note" data-en="Kids-safe channels • Cartoons & Educational • 1 device" data-ar="قنوات للأطفال • كرتون وتعليمي • جهاز واحد">Kids-safe channels • Cartoons & Educational • 1 device</div>
-          <a class="btn primary" href="https://buy.stripe.com/3cIbJ29I94yA92g2AV5kk04" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
-        </div>
-      </div>
-      <div class="card hoverable">
-        <h3 data-en="AECyberTV Casual — AED 75" data-ar="AECyberTV عادي — 75 درهم">AECyberTV Casual — AED 75</h3>
-        <div class="stack">
-          <div class="note" data-en="10k+ Live • 70k+ Movies • 12k+ Series • 1 device" data-ar="أكثر من 10k قناة • 70k فيلم • 12k مسلسل • جهاز واحد">10k+ Live • 70k+ Movies • 12k+ Series • 1 device</div>
-          <a class="btn primary" href="https://buy.stripe.com/6oU6oIf2t8OQa6kejD5kk03" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
-        </div>
-      </div>
-      <div class="card hoverable">
-        <h3 data-en="AECyberTV Executive — AED 200" data-ar="AECyberTV تنفيذي — 200 درهم">AECyberTV Executive — AED 200</h3>
-        <div class="stack">
-          <div class="note" data-en="16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K" data-ar="16k+ قناة • 24k+ فيلم • 14k+ مسلسل • SD/HD/FHD/4K">16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K</div>
-          <a class="btn primary" href="https://buy.stripe.com/8x23cw07zghi4M0ejD5kk05" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
-        </div>
-      </div>
-      <div class="card hoverable">
-        <h3 data-en="AECyberTV Premium — AED 250" data-ar="AECyberTV بريميوم — 250 درهم">AECyberTV Premium — AED 250</h3>
-        <div class="stack">
-          <div class="note" data-en="Full combo • 65k+ Live • 180k+ Movies • 10k+ Series • Priority support" data-ar="باقة كاملة • 65k+ قناة • 180k+ فيلم • 10k+ مسلسل • دعم أولوية">Full combo • 65k+ Live • 180k+ Movies • 10k+ Series • Priority support</div>
-          <a class="btn primary" href="https://buy.stripe.com/eVq00k7A15CE92gdfz5kk01" target="_blank" rel="noopener" data-en="Pay Now" data-ar="ادفع الآن">Pay Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="note" data-en="All plans are for 12 months. Prices in AED." data-ar="كل الباقات لمدة 12 شهر. الأسعار بالدرهم الإماراتي.">All plans are for 12 months. Prices in AED.</div>
-  </section>
-
-  <!-- Offers -->
-  <section id="offers" class="section">
-    <h2 data-en="🔥 Offers Available Now" data-ar="🔥 العروض المتاحة الآن">🔥 Offers Available Now</h2>
-    <div id="offers_grid" class="grid"></div>
-    <noscript>
-      <div class="note" data-en="Offers require JavaScript to display." data-ar="تحتاج العروض إلى JavaScript لعرضها.">Offers require JavaScript to display.</div>
-    </noscript>
-  </section>
-
-  <!-- Offers logic (date-based only; National Day exact prices; Xmas/New Year intact) -->
   <script>
-  // Offer windows (UAE time +04:00)
-  const AEC_OFFERS = [
-    { id: "current_offer_nov2025", start: "2025-11-07T00:00:00+04:00", end: "2025-11-20T23:59:59+04:00" },
-    { id: "uae_national_day_2025", start: "2025-12-01T00:00:00+04:00", end: "2025-12-07T23:59:59+04:00",
-      title_en: "🇦🇪 UAE National Day — 54% OFF", title_ar: "🇦🇪 اليوم الوطني — خصم 54%" },
-    { id: "xmas_newyear_2025_2026", start: "2025-12-24T00:00:00+04:00", end: "2026-01-05T23:59:59+04:00",
-      title_en: "🎄 Christmas & New Year Offer", title_ar: "🎄 عرض الكريسماس ورأس السنة" }
-  ];
-
-  // Payment links
-  const PAY_CURRENT = {
-    kids:      "https://buy.stripe.com/cNi3cw5rTc12baoejD5kk0e",
-    casual:    "https://buy.stripe.com/cNi8wQ3jL1moa6k1wR5kk0g",
-    executive: "https://buy.stripe.com/8x200kbQh7KM3HW1wR5kk0d",
-    premium:   "https://buy.stripe.com/aFa00k7A1e9aces2AV5kk0f"
-  };
-  const PAY_NATIONAL_DAY = {
-    kids:      "https://buy.stripe.com/9B6fZi4nP0ik1zO0sN5kk0b",
-    casual:    "https://buy.stripe.com/aFaaEYf2t9SU0vK7Vf5kk09",
-    executive: "https://buy.stripe.com/28EaEY07zghi5Q45N75kk0c",
-    premium:   "https://buy.stripe.com/28EbJ26vXc12emA3EZ5kk0a"
-  };
-
-  // Base/other offer prices
-  const PRICES = { kids: 50, casual: 50, executive: 150, premium: 200 };
-
-  // National Day prices (Dec 1–7) — exact values
-  const PRICES_NATIONAL_DAY = {
-    kids: 32,
-    casual: 34.6,
-    executive: 94,
-    premium: 115
-  };
-
-  const SUMMARY = {
-    kids:      { en: "Kids-safe channels • Cartoons & Educational • 1 device", ar: "قنوات للأطفال • كرتون وتعليمي • جهاز واحد" },
-    casual:    { en: "10k+ Live • 70k+ Movies • 12k+ Series • 1 device",     ar: "10k+ مباشر • 70k+ أفلام • 12k+ مسلسلات • جهاز واحد" },
-    executive: { en: "16k+ Live • 24k+ Movies • 14k+ Series • SD/HD/FHD/4K", ar: "16k+ مباشر • 24k+ أفلام • 14k+ مسلسلات • SD/HD/FHD/4K" },
-    premium:   { en: "65k+ Live • 180k+ Movies • 10k+ Series • Priority support", ar: "65k+ مباشر • 180k+ أفلام • 10k+ مسلسلات • دعم أولوية" }
-  };
-
-  function isRTL(){ return document.body.getAttribute('dir') === 'rtl' || document.documentElement.getAttribute('dir') === 'rtl'; }
-  function nameFor(key){
-    const en = { kids:"AECyberTV Kids", casual:"AECyberTV Casual", executive:"AECyberTV Executive", premium:"AECyberTV Premium" };
-    const ar = { kids:"AECyberTV أطفال", casual:"AECyberTV عادي", executive:"AECyberTV تنفيذي", premium:"AECyberTV بريميوم" };
-    return isRTL() ? ar[key] : en[key];
-  }
-  function payText(){ return isRTL() ? "ادفع الآن" : "Pay Now"; }
-  function currency(){ return "AED"; }
-
-  function card(key, price, href){
-    const nm = nameFor(key);
-    const sum = isRTL() ? SUMMARY[key].ar : SUMMARY[key].en;
-    const label = `${nm} — ${currency()} ${price}`;
-    return `
-      <div class="card hoverable">
-        <h3>${label}</h3>
-        <div class="stack">
-          <div class="note">${sum}</div>
-          <a class="btn primary" target="_blank" rel="noopener" href="${href}">${payText()}</a>
-        </div>
-      </div>
-    `;
-  }
-
-  function renderOffers(){
-    const elSection = document.querySelector('#offers');
-    const el = document.querySelector('#offers_grid');
-    if(!el || !elSection) return;
-
-    const now = Date.now();
-    const active = AEC_OFFERS.filter(o => {
-      const s = new Date(o.start).getTime();
-      const e = new Date(o.end).getTime();
-      return now >= s && now <= e;
-    });
-
-    if(active.length === 0){ elSection.style.display = 'none'; return; }
-
-    // Nov window (uses PAY_CURRENT + PRICES)
-    if (active.some(o => o.id === "current_offer_nov2025")){
-      const cards = ['kids','casual','executive','premium'].map(k => card(k, PRICES[k], PAY_CURRENT[k])).join('');
-      el.classList.add("offers-grid-4");
-      el.innerHTML = cards;
-      return;
+    function setLang(lang){
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      document.querySelectorAll('[data-en]').forEach(el=>{
+        const en = el.getAttribute('data-en'); const ar = el.getAttribute('data-ar');
+        el.textContent = (lang === 'ar') ? (ar || en) : (en || ar || el.textContent);
+      });
+      document.getElementById('lang_en').classList.toggle('active', lang==='en');
+      document.getElementById('lang_ar').classList.toggle('active', lang==='ar');
+      localStorage.setItem('aec_lang_maint', lang);
     }
-
-    // National Day window (uses PAY_NATIONAL_DAY + PRICES_NATIONAL_DAY)
-    // National Day window (uses PAY_NATIONAL_DAY + PRICES_NATIONAL_DAY)
-if (active.some(o => o.id === "uae_national_day_2025")){
-  const title = isRTL()
-    ? "🇦🇪 اليوم الوطني — خصم 54%"
-    : "🇦🇪 UAE National Day — 54% OFF";
-
-  const headerCard = `
-    <div class="card hoverable" style="grid-column:1 / -1;">
-      <div class="stack"><h3>${title}</h3></div>
-    </div>
-  `;
-
-  const cards = ['kids','casual','executive','premium']
-    .map(k => card(k, PRICES_NATIONAL_DAY[k], PAY_NATIONAL_DAY[k]))
-    .join('');
-
-  el.classList.add("offers-grid-4");
-  el.innerHTML = headerCard + cards;
-  return;
-}
-
-
-    // Xmas/New Year window (uses PAY_CURRENT + PRICES)
-    if (active.some(o => o.id === "xmas_newyear_2025_2026")){
-      const cards = ['kids','casual','executive','premium'].map(k => card(k, PRICES[k], PAY_CURRENT[k])).join('');
-      el.classList.add("offers-grid-4");
-      el.innerHTML = cards;
-      return;
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', renderOffers);
-  if (typeof window.setLang === 'function'){
-    const _orig = window.setLang;
-    window.setLang = function(lang){ _orig(lang); renderOffers(); };
-  }
+    document.getElementById('lang_en').addEventListener('click', ()=>setLang('en'));
+    document.getElementById('lang_ar').addEventListener('click', ()=>setLang('ar'));
+    setLang(localStorage.getItem('aec_lang_maint') || 'en');
   </script>
-
-  <!-- Players -->
-  <section id="players" class="section">
-    <h2 data-en="🎬 Players" data-ar="🎬 التطبيقات">🎬 Players</h2>
-    <div class="grid">
-      <div class="card hoverable">
-        <h3>🍏 iPlay</h3>
-        <div class="stack">
-          <div>🍎 <a href="https://apps.apple.com/us/app/iplay-hub/id6751518936" target="_blank" rel="noopener">App Store (iPhone / iPad / Mac)</a></div>
-          <div class="note" data-en="Use your same login and Server Number 7765." data-ar="استخدم نفس بيانات الدخول ورقم الخادم 7765.">Use your same login and Server Number 7765.</div>
-        </div>
-      </div>
-
-      <div class="card hoverable">
-        <h3>🤖 S Player</h3>
-        <div class="stack">
-          <div>📱 <a href="https://play.google.com/store/apps/details?id=com.splayer.iptv" target="_blank" rel="noopener">Google Play</a></div>
-          <div>💻 <a href="http://aftv.news/5653918" target="_blank" rel="noopener">Downloader (Firestick / Android TV)</a></div>
-          <div class="note" data-en="After install, tap the AECyberTV logo in the app. Server 7765." data-ar="بعد التثبيت اضغط على شعار AECyberTV داخل التطبيق. الخادم 7765.">After install, tap the AECyberTV logo in the app. Server 7765.</div>
-        </div>
-      </div>
-
-      <div class="card hoverable">
-        <h3>💠 000 Player</h3>
-        <div class="stack">
-          <div>🍎 <a href="https://apps.apple.com/us/app/000-player/id1665441224" target="_blank" rel="noopener">iOS</a></div>
-          <div>🤖 <a href="https://play.google.com/store/apps/details?id=com.player.iptv" target="_blank" rel="noopener">Android / Android TV</a></div>
-          <div>🔥 <a href="http://aftv.news/6913771" target="_blank" rel="noopener">Downloader (Firestick / Android TV)</a></div>
-          <div>💻 <a href="https://my.splayer.in" target="_blank" rel="noopener">Web Player</a></div>
-          <div class="note" data-en="Use Server Number 7765." data-ar="استخدم رقم الخادم 7765.">Use Server Number 7765.</div>
-        </div>
-      </div>
-
-      <div class="card hoverable">
-        <h3>🧩 IBO Player — Official</h3>
-        <div class="stack">
-          <div>Android (Standard): <span class="kbd">Downloader 1171959</span> • <a href="https://ibodesk.com/iboupdate.apk" target="_blank" rel="noopener">APK</a></div>
-          <div>Android (Pro): <span class="kbd">Downloader 923441</span> • <a href="https://ibodesk.com/iboplayerpro.apk" target="_blank" rel="noopener">APK</a></div>
-          <div>iOS: <a href="https://apps.apple.com/ae/app/ibo-player/id1547652240" target="_blank" rel="noopener">IBO Player</a> • <a href="https://apps.apple.com/us/app/ibo-player-pro/id1669696096" target="_blank" rel="noopener">IBO Player Pro</a></div>
-          <div class="note" data-en="Activation shows MAC & Device Key on-screen, then visit iboplayer.com" data-ar="تظهر بيانات MAC ومفتاح الجهاز على الشاشة ثم زر iboplayer.com للتفعيل.">Activation shows MAC & Device Key on-screen, then visit iboplayer.com</div>
-        </div>
-      </div>
-
-      <div class="card hoverable">
-        <h3>📺 Smarters Pro — Official</h3>
-        <div class="stack">
-          <div><a href="https://play.google.com/store/apps/details?id=com.smarterspro.smartersprotv" target="_blank" rel="noopener">Android TV</a></div>
-          <div><a href="https://play.google.com/store/apps/details?id=com.smarters.smarterspro" target="_blank" rel="noopener">Android Phone</a></div>
-          <div><a href="https://apps.apple.com/app/smarters-pro/id6450746159" target="_blank" rel="noopener">iOS (iPhone / iPad / Apple TV)</a></div>
-          <div><a href="http://webtv-new.iptvsmarters.com" target="_blank" rel="noopener">Web TV</a></div>
-          <div><a href="https://drive.google.com" target="_blank" rel="noopener">Windows (Beta)</a> • <a href="https://drive.google.com" target="_blank" rel="noopener">Mac (Beta)</a></div>
-          <div class="note">Official site: <a href="https://smarterspro.com/" target="_blank" rel="noopener">smarterspro.com</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2 data-en="💬 Contact" data-ar="💬 التواصل">💬 Contact</h2>
-    <div class="grid">
-      <a class="card hoverable" href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener" style="display:block">
-        <h3 data-en="💚 WhatsApp" data-ar="💚 واتساب">💚 WhatsApp</h3>
-        <div class="stack"><div data-en="Tap to start a chat on WhatsApp. 💬" data-ar="اضغط لبدء محادثة على واتساب. 💬">Tap to start a chat on WhatsApp. 💬</div></div>
-      </a>
-      <a class="card hoverable" href="https://t.me/AECYBERTVBOT" target="_blank" rel="noopener" style="display:block">
-        <h3 data-en="🤖 Telegram Sales Bot" data-ar="🤖 بوت المبيعات على تيليجرام">🤖 Telegram Sales Bot</h3>
-        <div class="stack"><div data-en="Open @AECYBERTVBOT for subscriptions & renewals. 🚀" data-ar="افتح @AECYBERTVBOT للاشتراكات والتجديد. 🚀">Open @AECYBERTVBOT for subscriptions & renewals. 🚀</div></div>
-      </a>
-    </div>
-  </section>
-</main>
-
-<footer class="container">
-  <small class="note">AECyberTV • All rights reserved.</small>
-</footer>
-
-<script>
-  // Bilingual toggle
-  function setLang(lang){
-    document.documentElement.setAttribute('lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      const en = el.getAttribute('data-en'); const ar = el.getAttribute('data-ar');
-      el.textContent = lang === 'ar' ? (ar || en) : (en || ar || el.textContent);
-    });
-    document.querySelector('#lang_en').classList.toggle('active', lang==='en');
-    document.querySelector('#lang_ar').classList.toggle('active', lang==='ar');
-    localStorage.setItem('aec_lang_min', lang);
-  }
-  document.querySelector('#lang_en').addEventListener('click', ()=>setLang('en'));
-  document.querySelector('#lang_ar').addEventListener('click', ()=>setLang('ar'));
-  setLang(localStorage.getItem('aec_lang_min') || 'en');
-</script>
-
-<script>
-  (function(){
-    const tabs = document.querySelectorAll('#top-tabs .tab');
-    const sections = { home: document.getElementById('home'), packages: document.getElementById('packages'), players: document.getElementById('players'), contact: document.getElementById('contact') };
-    function setActive(id){ tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id)); }
-    function onScroll(){
-      const offset = 120; const y = window.scrollY + offset; let current = 'home';
-      for (const [id, el] of Object.entries(sections)){ if (!el) continue; const top = el.getBoundingClientRect().top + window.scrollY; if (y >= top) current = id; }
-      setActive(current);
-    }
-    tabs.forEach(t => {
-      t.addEventListener('click', (e) => { const target = t.getAttribute('href'); if (target === '#home'){ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', '#home'); setActive('home'); } });
-    });
-    window.addEventListener('scroll', onScroll, {passive:true});
-    window.addEventListener('hashchange', () => setActive(location.hash.replace('#','') || 'home'));
-    setActive(location.hash.replace('#','') || 'home'); onScroll();
-  })();
-</script>
-
-<!-- 1-hour Flash Offer Override (fixed end-branch) -->
-<script>
-  (function(){
-    const OVERRIDE_START = new Date("2025-11-07T12:44:22+04:00").getTime();
-    const OVERRIDE_END   = new Date("2025-11-07T13:44:22+04:00").getTime();
-    const secPackages = document.getElementById('packages');
-    const secOffers   = document.getElementById('offers');
-    function applyOverride(){
-      if(!secPackages || !secOffers) return;
-      const now = Date.now(); const within = now >= OVERRIDE_START && now <= OVERRIDE_END;
-      if (within) { secPackages.classList.add('hidden'); secOffers.classList.remove('hidden'); }
-      else if (now > OVERRIDE_END) { secOffers.classList.remove('hidden'); secPackages.classList.remove('hidden'); }
-      else { secOffers.classList.remove('hidden'); secPackages.classList.remove('hidden'); }
-    }
-    document.addEventListener('DOMContentLoaded', applyOverride);
-    setInterval(applyOverride, 30000);
-  })();
-</script>
-
-<!-- Flash navigation routing: Packages tab -> Offers when flash is active -->
-<script>
-  (function(){
-    const OVERRIDE_START = (function(){ try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_START\s*=\s*new Date\("([^"]+)/)[1]).getTime(); } catch(e){ return Date.now(); } })();
-    const OVERRIDE_END   = (function(){ try { return new Date(document.currentScript.previousElementSibling.textContent.match(/OVERRIDE_END\s*=\s*new Date\("([^"]+)/)[1]).getTime(); } catch(e){ return Date.now() + 3600*1000; } })();
-    function flashActive(){ const now = Date.now(); return now >= OVERRIDE_START && now <= OVERRIDE_END; }
-    function wireNavHijack(){
-      var pkgLink = document.querySelector('a[href="#packages"]'); var offersEl = document.getElementById('offers');
-      if(!pkgLink || !offersEl) return;
-      pkgLink.addEventListener('click', function(e){ if(flashActive()){ e.preventDefault(); offersEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); try { history.replaceState(null, '', '#offers'); } catch(_){}} }, { passive:false });
-    }
-    document.addEventListener('DOMContentLoaded', wireNavHijack);
-  })();
-</script>
-
-<!-- Date-bound Packages hide / Offers show (Nov 7–20, 2025, UAE) -->
-<script>
-(function(){
-  const START = new Date("2025-11-07T00:00:00+04:00").getTime();
-  const END   = new Date("2025-11-20T23:59:59+04:00").getTime();
-  function within(){ const now = Date.now(); return now >= START && now <= END; }
-  function apply(){
-    const p = document.getElementById('packages'); const o = document.getElementById('offers');
-    if(!p||!o) return;
-    if (within()){ p.classList.add('hidden'); o.classList.remove('hidden'); }
-    else { p.classList.remove('hidden'); }
-  }
-  function navHijack(){
-    const link = document.querySelector('a[href="#packages"]'); const o = document.getElementById('offers');
-    if(!link||!o) return;
-    link.addEventListener('click', function(e){
-      if(within()){ e.preventDefault(); o.scrollIntoView({behavior:'smooth',block:'start'}); try{history.replaceState(null,'','#offers');}catch(_){} }
-    }, {passive:false});
-  }
-  document.addEventListener('DOMContentLoaded', function(){ apply(); navHijack(); setInterval(apply, 30000); });
-})();
-</script>
-
-<!-- Pay Warning Modal -->
-<div id="payWarningBackdrop" role="dialog" aria-modal="true" aria-labelledby="payWarnTitle">
-  <div id="payWarningModal" class="card">
-    <h3 id="payWarnTitle">⚠️ Before you pay</h3>
-    <p>Please make sure to fill in your <b>name</b>, <b>email</b>, and <b>phone number</b> in the payment form so we can send your subscription.</p>
-    <div id="payWarningActions"><button id="payOkBtn" type="button">OK</button></div>
-  </div>
-</div>
-
-<script>
-(function(){
-  const backdrop = document.getElementById('payWarningBackdrop');
-  const okBtn = document.getElementById('payOkBtn');
-  let pendingHref = null;
-
-  function showWarning(href){ pendingHref = href; if (backdrop) backdrop.style.display = 'flex'; }
-  function hideWarning(){ if (backdrop) backdrop.style.display = 'none'; }
-  function proceed(){ if (pendingHref){ window.open(pendingHref, '_blank', 'noopener'); pendingHref = null; } hideWarning(); }
-
-  function wirePayButtons(){
-    const payBtns = Array.from(document.querySelectorAll('#packages a.btn.primary, #offers a.btn.primary'))
-      .filter(a => /pay now/i.test(a.textContent || ''));
-    payBtns.forEach(a => {
-      a.addEventListener('click', function(e){
-        try{ e.preventDefault(); }catch(_){}
-        const href = a.getAttribute('href');
-        if (href) showWarning(href);
-      }, { passive:false });
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', wirePayButtons);
-  if (okBtn) okBtn.addEventListener('click', proceed);
-  document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') { hideWarning(); } });
-})();
-</script>
-
-<!-- Hidden Visitor Counter (visible only with ?faisal123) -->
-<div id="secretCounter" style="display:none; text-align:center; margin-top:12px;">
-  <a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener">
-    <img src="https://hitwebcounter.com/counter/counter.php?page=21455855&style=0006&nbdigits=5&type=page&initCount=0" title="Free Tools" alt="Free Tools" border="0">
-  </a>
-</div>
-
-<script>
-  (function(){
-    function shouldShow(){
-      try {
-        var q = (window.location.search || "").toLowerCase();
-        var h = (window.location.hash || "").toLowerCase();
-        if (q.includes("faisal123")) return true;
-        if (q.includes("secret=faisal123")) return true;
-        if (h.includes("faisal123")) return true;
-        if (localStorage.getItem("faisal_show_counter") === "yes") return true;
-      } catch(e){}
-      return false;
-    }
-    function showCounter(){ var el = document.getElementById("secretCounter"); if (el) el.style.display = "block"; }
-    if (document.readyState === "loading"){ document.addEventListener("DOMContentLoaded", function(){ if (shouldShow()) showCounter(); }); }
-    else { if (shouldShow()) showCounter(); }
-    document.addEventListener("keydown", function(ev){
-      if (ev.ctrlKey && ev.shiftKey && (ev.key === "V" || ev.key === "v")){
-        var el = document.getElementById("secretCounter");
-        if (el){ el.style.display = (el.style.display === "none" || !el.style.display) ? "block" : "none"; }
-      }
-    });
-  })();
-</script>
-
-<!-- Floating WhatsApp & Telegram -->
-<div class="floating-chat" role="navigation" aria-label="Quick chat links">
-  <a href="https://wa.me/message/PT2D2S5UFVOTC1" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
-  <a href="https://t.me/AECYBERTVBOT" target="_blank" rel="noopener" aria-label="Telegram">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
-  </a>
-</div>
-
 </body>
 </html>
